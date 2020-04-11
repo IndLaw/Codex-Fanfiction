@@ -48,7 +48,7 @@ public class AO3_SearchFragment extends AO3_Paginate {
     }
 
     @Override
-    public void extra_data(HashMap<String, String> data) {
+    protected void extra_data(HashMap<String, String> data) {
         data.put("work_search[query]", search);
         data.put("utf8", "%E2%9C%93");
     }

@@ -135,8 +135,9 @@ public class LibraryFragment extends UILibrary {
     }
 
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
+    public void onAttach(Context context) { // updated from deprecated version of method
+        super.onAttach(context);
+        Activity activity = context instanceof Activity ? (Activity) context : null;
         try {
             setCallback((LibraryFragmentListener) activity);
         } catch (ClassCastException e) {
@@ -146,7 +147,7 @@ public class LibraryFragment extends UILibrary {
     }
 
 
-    public void update() {
+    void update() {
         int site = Settings.getSiteFiltering(getActivity());
         int filter = Settings.getFiltering(getActivity());
         int sorting = Settings.getSorting(getActivity());

@@ -62,12 +62,6 @@ public class BookExport {
         return s;
     }
 
-    private static String getExtension(String site) {
-        if (site.equals(Constants.FF_NET_S) || site.equals(Constants.FP_COM_S))
-            return ".jpeg";
-        return ".jpeg";
-    }
-
     private static void setMetadata(Entry e, Book book) {
         book.getMetadata().addTitle(e.title);
         book.getMetadata().setAuthors(Collections.singletonList(new Author(e.getAuthor(), "")));

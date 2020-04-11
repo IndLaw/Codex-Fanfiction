@@ -152,7 +152,7 @@ public abstract class OnlineReaderFragment extends ReaderFragment {
     }
 
 
-    public boolean run(Bundle b, Bundle saved) {
+    boolean run(Bundle b, Bundle saved) {
         getInfo(b);
 
         if (saved == null || reset(saved)) {
@@ -218,7 +218,7 @@ public abstract class OnlineReaderFragment extends ReaderFragment {
     }
 
     @Override
-    public void setPage(int page) {
+    void setPage(int page) {
         super.setPage(page);
         dataManager.setPage(page);
     }
@@ -226,7 +226,7 @@ public abstract class OnlineReaderFragment extends ReaderFragment {
 
 
     @Override
-    public void setLocation(String location) {
+    void setLocation(String location) {
         super.setLocation(location);
         dataManager.setFirstPage(location);
     }

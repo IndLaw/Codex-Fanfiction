@@ -26,7 +26,7 @@ public class AO3_Container extends SearchFragmentContainer {
         onSubmit(getList().get(position).first);
     }
 
-    public void onSubmit(String query) {
+    protected void onSubmit(String query) {
         if (query.length() != 0) {
             Bundle b = new Bundle();
             b.putString("name", getString(R.string.search) + ": " + query);

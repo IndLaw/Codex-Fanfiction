@@ -193,7 +193,7 @@ public class FF_SearchFragment extends FF_Paginate {
         }
     }
 
-    public void extra_data(HashMap<String, String> data) {
+    protected void extra_data(HashMap<String, String> data) {
         data.put("ready", "1");
         data.put("keywords", search);
         data.put("type", type);

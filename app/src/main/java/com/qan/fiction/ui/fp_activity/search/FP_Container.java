@@ -6,6 +6,7 @@ import android.widget.ListView;
 import com.qan.fiction.R;
 import com.qan.fiction.ui.abs_web_activity.SearchFragmentContainer;
 
+@SuppressWarnings("ALL")
 public class FP_Container extends SearchFragmentContainer {
     public String getUrl(CharSequence query, String type, boolean dual) {
         String url;
@@ -23,7 +24,8 @@ public class FP_Container extends SearchFragmentContainer {
         onSubmit(getList().get(position).first);
     }
 
-    public void onSubmit(String query) {
+    @SuppressWarnings("WeakerAccess")
+    protected void onSubmit(String query) {
         if (query.length() != 0) {
             Bundle b = new Bundle();
             b.putString("name", getString(R.string.search) + ": " + query);
