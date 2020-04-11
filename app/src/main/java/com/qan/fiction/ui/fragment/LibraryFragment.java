@@ -253,10 +253,10 @@ public class LibraryFragment extends UILibrary {
         View v;
         {
             v = LayoutInflater.from(getActivity()).inflate(R.layout.sorting_new, null);
-            Spinner a = (Spinner) v.findViewById(R.id.filtering);
-            Spinner b = (Spinner) v.findViewById(R.id.sorting);
-            Spinner c = (Spinner) v.findViewById(R.id.sites);
-            Spinner d = (Spinner) v.findViewById(R.id.status);
+            Spinner a = v.findViewById(R.id.filtering);
+            Spinner b = v.findViewById(R.id.sorting);
+            Spinner c = v.findViewById(R.id.sites);
+            Spinner d = v.findViewById(R.id.status);
             initSpinner(a, R.array.filtering);
             initSpinner(b, R.array.sorting);
             initSpinner(c, R.array.sites);

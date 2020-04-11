@@ -9,8 +9,8 @@ import android.widget.TextView;
 import com.qan.fiction.R;
 
 public class MainAdapter extends ArrayAdapter<String> {
-    private String[] items;
-    private Drawable[] images;
+    private final String[] items;
+    private final Drawable[] images;
 
     public MainAdapter(Context context, String[] items, Drawable[] images) {
         super(context, android.R.layout.simple_list_item_1, items);
@@ -24,7 +24,7 @@ public class MainAdapter extends ArrayAdapter<String> {
         if (v == null) {
             v = View.inflate(getContext(), R.layout.list_row, null);
         }
-        TextView t = (TextView) v.findViewById(R.id.row);
+        TextView t = v.findViewById(R.id.row);
         t.setText(items[pos]);
         t.setCompoundDrawables(images[pos], null, null, null);
         return v;

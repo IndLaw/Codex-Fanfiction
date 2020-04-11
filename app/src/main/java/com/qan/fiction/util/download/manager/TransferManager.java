@@ -20,13 +20,13 @@ public class TransferManager {
      */
     private Document download;
 
-    private String site;
+    private final String site;
 
-    private int storyId;
+    private final int storyId;
 
     private Entry storyInfo;
 
-    private List<DownloadListener> listeners;
+    private final List<DownloadListener> listeners;
 
     private String[] chapters;
 

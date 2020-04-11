@@ -18,9 +18,9 @@ public class CommunityAdapter extends StreamAdapter<CommunityInfo> {
 
     @Override
     protected void makeView(View v, CommunityInfo info) {
-        TextView r = (TextView) v.findViewById(R.id.row1);
-        TextView s = (TextView) v.findViewById(R.id.row2);
-        TextView t = (TextView) v.findViewById(R.id.row3);
+        TextView r = v.findViewById(R.id.row1);
+        TextView s = v.findViewById(R.id.row2);
+        TextView t = v.findViewById(R.id.row3);
         r.setText(info.name);
         s.setText(info.summary);
         t.setText(info.result);

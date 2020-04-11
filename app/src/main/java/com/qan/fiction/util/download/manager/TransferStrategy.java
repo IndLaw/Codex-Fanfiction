@@ -19,7 +19,7 @@ public abstract class TransferStrategy implements DownloadListener {
     private final Context context;
     private final DatabaseHandler db;
     private final TransferManager manager;
-    private List<ProgressListener> listeners;
+    private final List<ProgressListener> listeners;
 
     TransferStrategy(Context context, DatabaseHandler db, TransferManager manager) {
         this.context = context;

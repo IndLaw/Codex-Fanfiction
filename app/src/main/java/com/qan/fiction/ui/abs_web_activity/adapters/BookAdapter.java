@@ -27,9 +27,9 @@ public class BookAdapter extends StreamAdapter<Entry> {
 
     @Override
     protected void makeView(View v, Entry e) {
-        TextView r = (TextView) v.findViewById(R.id.row1);
-        TextView s = (TextView) v.findViewById(R.id.row2);
-        TextView t = (TextView) v.findViewById(R.id.row3);
+        TextView r = v.findViewById(R.id.row1);
+        TextView s = v.findViewById(R.id.row2);
+        TextView t = v.findViewById(R.id.row3);
         r.setText(Html.fromHtml(e.title));
         s.setText(Html.fromHtml(e.description));
         t.setText("by " + Html.fromHtml(e.getAuthor()));

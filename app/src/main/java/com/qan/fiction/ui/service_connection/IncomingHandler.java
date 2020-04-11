@@ -4,7 +4,7 @@ import android.os.Handler;
 import android.os.Message;
 
 class IncomingHandler extends Handler {
-    private ConnectionManager.OnMessageReceivedListener listener;
+    private final ConnectionManager.OnMessageReceivedListener listener;
 
     public IncomingHandler(ConnectionManager.OnMessageReceivedListener listener) {
         this.listener = listener;

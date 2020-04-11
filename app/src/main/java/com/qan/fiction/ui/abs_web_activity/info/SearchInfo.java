@@ -4,17 +4,17 @@ import java.io.Serializable;
 
 public class SearchInfo implements Serializable {
 
-    public String name;
+    public final String name;
 
     /**
      * A  formatted {@link String} representing the story name
      */
-    public String title;
+    public final String title;
 
     /**
      * The href of the link location
      */
-    public String ref;
+    public final String ref;
 
     public SearchInfo(String name, String title, String ref) {
         this.name = name;

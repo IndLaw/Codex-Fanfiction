@@ -156,7 +156,7 @@ public class MainActivity extends BaseActivity
 
     @Override
     public void onOnlineRead(String site, String file) {
-        FrameLayout layout = (FrameLayout) findViewById(R.id.fragment_bigger);
+        FrameLayout layout = findViewById(R.id.fragment_bigger);
         String id = Entry.getId(file, site);
         String url;
         if (layout != null) {

@@ -73,7 +73,7 @@ public abstract class OnlineReaderFragment extends ReaderFragment {
                 setChapters(getChapterCount());
                 getArguments().putInt("chapters", getChapters());
                 getArguments().putString("title", title);
-                getActivity().supportInvalidateOptionsMenu();
+                getActivity().invalidateOptionsMenu();
             }
         }
 
@@ -122,7 +122,7 @@ public abstract class OnlineReaderFragment extends ReaderFragment {
             String title = getArguments().getString("title");
             Settings.setOnlineInfo(getActivity(), new ReaderWrapper(getLocation(), title, getStoryId(), getChapters()));
         }
-        getActivity().supportInvalidateOptionsMenu();
+        getActivity().invalidateOptionsMenu();
     }
 
     private String getContent() {

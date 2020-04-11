@@ -176,11 +176,11 @@ public class FP_SearchFragment extends FP_Paginate {
                 bundle.view = View.inflate(getActivity(), R.layout.text_search, null);
             else
                 bundle.view = View.inflate(getActivity(), R.layout.text_search_dark, null);
-            TextView t = (TextView) bundle.view.findViewById(R.id.section);
+            TextView t = bundle.view.findViewById(R.id.section);
             t.setText(searchInfo.name);
-            TextView u = (TextView) bundle.view.findViewById(R.id.title);
+            TextView u = bundle.view.findViewById(R.id.title);
             u.setText(searchInfo.title);
-            ImageView v = (ImageView) bundle.view.findViewById(R.id.image);
+            ImageView v = bundle.view.findViewById(R.id.image);
             v.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

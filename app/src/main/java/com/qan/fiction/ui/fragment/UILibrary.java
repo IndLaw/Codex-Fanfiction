@@ -1,6 +1,5 @@
 package com.qan.fiction.ui.fragment;
 
-import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -160,9 +159,9 @@ public class UILibrary extends AppCompatFragment {
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
-        if (requestCode == PERMISSIONS_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
-            // TODO: actually export the e-book after permission is granted.
-        }
+//        if (requestCode == PERMISSIONS_REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+//            // TODO: actually export the e-book after permission is granted.
+//        }
     }
 
     private int getDescr() {
@@ -243,8 +242,8 @@ public class UILibrary extends AppCompatFragment {
         final String[] value = {Settings.site(0)};
         final EditText t;
 
-        t = (EditText) v.findViewById(R.id.file_id);
-        Spinner s = (Spinner) v.findViewById(R.id.spinner_id);
+        t = v.findViewById(R.id.file_id);
+        Spinner s = v.findViewById(R.id.spinner_id);
         String[] names = getResources().getStringArray(R.array.sites_web);
         s.setAdapter(new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item,
                 names));

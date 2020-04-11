@@ -122,7 +122,6 @@ public class FF_Extract {
                 calendar.setTime(dateB);
                 calendar.set(Calendar.YEAR, year);
                 return calendar.getTime().getTime();
-            } else {
             }
         }
         return defaultValue;

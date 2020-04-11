@@ -86,7 +86,7 @@ public class ReaderFragment extends AppCompatFragment {
         void onReview(Entry e);
     }
 
-    private ArrayList<Page> tasks = new ArrayList<Page>();
+    private final ArrayList<Page> tasks = new ArrayList<Page>();
 
 
     private class CustomDetector extends GestureDetector.SimpleOnGestureListener {
@@ -386,8 +386,8 @@ public class ReaderFragment extends AppCompatFragment {
     }
 
     private void default_view(View container) {
-        scrollView = (ScrollView) container.findViewById(R.id.reader_scroll);
-        textView = (ReaderView) container.findViewById(R.id.text_body);
+        scrollView = container.findViewById(R.id.reader_scroll);
+        textView = container.findViewById(R.id.text_body);
     }
 
 

@@ -23,8 +23,8 @@ public class PairAdapter extends ArrayAdapter<SerPair<String, Integer>> {
         if (v == null) {
             v = View.inflate(getContext(), R.layout.category_row, null);
         }
-        TextView s = (TextView) v.findViewById(R.id.title);
-        TextView t = (TextView) v.findViewById(R.id.hint);
+        TextView s = v.findViewById(R.id.title);
+        TextView t = v.findViewById(R.id.hint);
         s.setText(Html.fromHtml(getItem(pos).first));
         int val = getItem(pos).second;
         t.setText(val + (val == 1 ? " search" : " searches"));

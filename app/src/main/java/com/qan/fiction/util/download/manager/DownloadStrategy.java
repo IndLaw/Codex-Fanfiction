@@ -8,7 +8,7 @@ import com.qan.fiction.util.storage.entries.Entry;
 
 public class DownloadStrategy extends TransferStrategy {
 
-    private boolean newDownload;
+    private final boolean newDownload;
 
 
     public DownloadStrategy(Context context, DatabaseHandler db, TransferManager manager, boolean newDownload) {

@@ -12,8 +12,8 @@ import static com.qan.fiction.util.download.StoryDownload.MSG_REGISTER_CLIENT;
 public class ConnectionManager {
 
     private Messenger service;
-    private Messenger messenger;
-    private ServiceConnection connection;
+    private final Messenger messenger;
+    private final ServiceConnection connection;
 
     public void send(Message msg) throws RemoteException {
         service.send(msg);

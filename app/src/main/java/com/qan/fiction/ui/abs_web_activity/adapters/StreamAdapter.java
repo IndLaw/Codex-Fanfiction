@@ -13,9 +13,9 @@ import java.util.List;
 
 public abstract class StreamAdapter<T> extends ArrayAdapter<T> {
     private int page;
-    private int total;
-    private int size;
-    private Loadable activity;
+    private final int total;
+    private final int size;
+    private final Loadable activity;
     private boolean finite;
 
     StreamAdapter(Context context, List<T> entries, int total, Loadable activity, int size) {

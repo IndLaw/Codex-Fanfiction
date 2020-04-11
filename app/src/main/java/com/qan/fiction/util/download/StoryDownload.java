@@ -45,8 +45,8 @@ public class StoryDownload extends Service {
     /**
      * This is here to stop simultaneous downloads of the same same files
      */
-    private HashSet<String> stoppedDownloads = new HashSet<String>();
-    private Set<Messenger> clients = new CopyOnWriteArraySet<Messenger>();
+    private final HashSet<String> stoppedDownloads = new HashSet<String>();
+    private final Set<Messenger> clients = new CopyOnWriteArraySet<Messenger>();
 
     private final Messenger mMessenger = new Messenger(new IncomingHandler()); // Target we publish for clients to send messages to IncomingHandler.
     private DatabaseHandler db;

@@ -109,11 +109,10 @@ public abstract class Paginate<T extends Serializable> extends AppCompatListFrag
 
     protected class StringWrapperUrl {
         StringBuilder value;
-        HashMap<String, String> filter;
+        final HashMap<String, String> filter;
 
-        StringWrapperUrl append(String s) {
+        void append(String s) {
             value = value.append(get(s)).append("/");
-            return this;
         }
 
         public StringWrapperUrl appendAll(List<String> list) {
@@ -152,7 +151,7 @@ public abstract class Paginate<T extends Serializable> extends AppCompatListFrag
             super(s + "?", filter);
         }
 
-        public StringWrapperUrl append(String s) {
+        public void append(String s) {
             String name = s;
             if (filter != null && filter.get(s) != null)
                 name = filter.get(s);
@@ -162,7 +161,6 @@ public abstract class Paginate<T extends Serializable> extends AppCompatListFrag
                 value = value.append(name).append("=").append(get(s));
                 first = false;
             }
-            return this;
         }
     }
 
@@ -448,8 +446,8 @@ public abstract class Paginate<T extends Serializable> extends AppCompatListFrag
             LayoutInflater inflater = getActivity().getLayoutInflater();
             LinearLayout l = (LinearLayout) inflater.inflate(R.layout.spinner_normal, null);
             bundle.view = l;
-            Spinner s = (Spinner) l.findViewById(R.id.spinner);
-            TextView t = (TextView) l.findViewById(R.id.text);
+            Spinner s = l.findViewById(R.id.spinner);
+            TextView t = l.findViewById(R.id.text);
             s.setAdapter(new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item, key));
             ((ArrayAdapter) s.getAdapter()).setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
             s.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {

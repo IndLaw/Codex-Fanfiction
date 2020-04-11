@@ -17,7 +17,7 @@ import java.util.List;
 
 public class ExpandListAdapter extends BaseExpandableListAdapter {
 
-    private Context context;
+    private final Context context;
     private ArrayList<ListGroup> groups;
 
     public ExpandListAdapter(Context context, ArrayList<ListGroup> groups) {
@@ -55,9 +55,9 @@ public class ExpandListAdapter extends BaseExpandableListAdapter {
             else
                 v = View.inflate(context, R.layout.list_multi_dark, null);
         }
-        TextView r = (TextView) v.findViewById(R.id.row1);
-        TextView s = (TextView) v.findViewById(R.id.row2);
-        TextView t = (TextView) v.findViewById(R.id.row3);
+        TextView r = v.findViewById(R.id.row1);
+        TextView s = v.findViewById(R.id.row2);
+        TextView t = v.findViewById(R.id.row3);
         r.setVisibility(View.VISIBLE);
         s.setVisibility(View.VISIBLE);
         t.setVisibility(View.VISIBLE);
@@ -84,7 +84,7 @@ public class ExpandListAdapter extends BaseExpandableListAdapter {
             v.setBackgroundResource(0);
         }
 
-        final ImageView b = (ImageView) v.findViewById(R.id.starred);
+        final ImageView b = v.findViewById(R.id.starred);
         final boolean[] state = new boolean[]{Settings.isStarred(context, child.getEntry().file)};
         if (Settings.isLightTheme(context))
             if (state[0])
@@ -144,9 +144,9 @@ public class ExpandListAdapter extends BaseExpandableListAdapter {
         String s = group.getName();
         if (group.getFilterType() == StoryUtils.FILTER_AUTHOR)
             s = s.substring(0, s.lastIndexOf('@'));
-        TextView a = (TextView) v.findViewById(R.id.title);
+        TextView a = v.findViewById(R.id.title);
         a.setText(Html.fromHtml(s));
-        TextView b = (TextView) v.findViewById(R.id.hint);
+        TextView b = v.findViewById(R.id.hint);
         if (group.getNumberUnread() > 0)
             b.setText(group.getNumberUnread() + " unread");
         else

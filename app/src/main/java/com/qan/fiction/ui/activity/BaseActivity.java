@@ -144,7 +144,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ViewList
     }
 
     protected void openFragment(Fragment fragment, Bundle b, boolean keepHistory) {
-        FrameLayout layout = (FrameLayout) findViewById(R.id.fragment_bigger);
+        FrameLayout layout = findViewById(R.id.fragment_bigger);
         int id;
         if (layout != null) {
             id = R.id.fragment_bigger;
