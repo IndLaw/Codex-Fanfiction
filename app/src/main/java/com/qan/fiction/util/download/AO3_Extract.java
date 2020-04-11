@@ -17,7 +17,6 @@ import java.util.TimeZone;
 
 import static com.qan.fiction.util.constants.Constants.SELECTED_STRING;
 
-@SuppressWarnings("ForLoopReplaceableByForEach")
 public class AO3_Extract {
 
     private static final ArrayList<SerPair<String, String>> list;

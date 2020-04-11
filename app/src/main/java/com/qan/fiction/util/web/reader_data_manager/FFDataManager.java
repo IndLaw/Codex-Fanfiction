@@ -17,7 +17,6 @@ public class FFDataManager extends DataManager {
         return getDocument().getElementById(elementID.get(FF_NET_S)).html();
     }
 
-    @SuppressWarnings("ForLoopReplaceableByForEach")
     @Override
     public int getChapterCount() {
         Elements e = getDocument().select("body > div[align=center] > a");

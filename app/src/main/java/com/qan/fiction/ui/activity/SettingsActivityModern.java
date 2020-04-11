@@ -1,6 +1,5 @@
 package com.qan.fiction.ui.activity;
 
-import android.app.Activity;
 import android.app.FragmentTransaction;
 import android.content.Intent;
 import android.content.SharedPreferences;

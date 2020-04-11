@@ -20,7 +20,6 @@ import java.util.*;
 
 import static com.qan.fiction.util.constants.Constants.SELECTED_STRING;
 
-@SuppressWarnings("ForLoopReplaceableByForEach")
 public class FF_Extract {
 
     private static final List<String> genres;
@@ -46,7 +45,6 @@ public class FF_Extract {
     public static final String FORMAT_1 = "MM/dd/yy";
     public static final String FORMAT_2 = "MM/dd";
 
-    @SuppressWarnings("ForLoopReplaceableByForEach")
     public static Entry extract(Document doc, String site, int id) {
         Element base = doc.getElementById("content_wrapper_inner");
         Entry e = new FF_Entry();

@@ -5,11 +5,11 @@ import android.content.res.TypedArray;
 import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.util.TypedValue;
-import android.widget.TextView;
+
 import com.qan.fiction.R;
 import com.qan.fiction.util.constants.Settings;
 
-public class ReaderView extends TextView {
+public class ReaderView extends android.support.v7.widget.AppCompatTextView {
 
 
     public ReaderView(Context context, AttributeSet attrs) {

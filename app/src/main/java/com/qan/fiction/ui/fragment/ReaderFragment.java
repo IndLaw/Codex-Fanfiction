@@ -55,7 +55,6 @@ public class ReaderFragment extends AppCompatFragment {
     private int page;
     private GestureDetector detector;
     protected boolean scrollToPosition;
-    private ReaderFragmentListener callback;
     private boolean ignore;
 
     public int getChapters() {
@@ -255,7 +254,7 @@ public class ReaderFragment extends AppCompatFragment {
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
-            callback = (ReaderFragmentListener) activity;
+            ReaderFragmentListener callback = (ReaderFragmentListener) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(activity.toString()
                     + " must implement ReaderFragmentListener");

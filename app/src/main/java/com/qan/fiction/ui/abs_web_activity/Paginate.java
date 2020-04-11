@@ -445,7 +445,7 @@ public abstract class Paginate<T extends Serializable> extends AppCompatListFrag
         }
 
         {
-            LayoutInflater inflater = getLayoutInflater(null);
+            LayoutInflater inflater = getActivity().getLayoutInflater();
             LinearLayout l = (LinearLayout) inflater.inflate(R.layout.spinner_normal, null);
             bundle.view = l;
             Spinner s = (Spinner) l.findViewById(R.id.spinner);
