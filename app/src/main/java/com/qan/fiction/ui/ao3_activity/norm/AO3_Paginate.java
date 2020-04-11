@@ -63,19 +63,21 @@ public class AO3_Paginate extends Paginate<Entry> {
 
     @Override
     public String getString(ArrayList<CharSequence> key, String item) {
-        if (item.equals("work_search[sort_column]"))
-            return "Sort By:";
-        else if (item.equals("work_search[language_id]"))
-            return "Language:";
-        else if (item.equals("work_search[rating_ids]"))
-            return "Ratings:";
+        switch (item) {
+            case "work_search[sort_column]":
+                return "Sort By:";
+            case "work_search[language_id]":
+                return "Language:";
+            case "work_search[rating_ids]":
+                return "Ratings:";
+        }
         return null;
     }
 
     @Override
     public HashMap<String, String> transferData() {
         HashMap<String, String> transfer = super.transferData();
-        HashMap<String, String> result = new HashMap<String, String>();
+        HashMap<String, String> result = new HashMap<>();
         for (String key : transfer.keySet()) {
             if (transfer.get(key).length() != 0)
                 result.put(key, transfer.get(key));
@@ -215,7 +217,7 @@ public class AO3_Paginate extends Paginate<Entry> {
 
     @Override
     protected ArrayList<String> getExclude(Document doc) {
-        return new ArrayList<String>();
+        return new ArrayList<>();
     }
 
     @Override

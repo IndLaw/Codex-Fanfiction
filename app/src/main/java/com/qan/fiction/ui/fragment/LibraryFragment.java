@@ -278,7 +278,7 @@ public class LibraryFragment extends UILibrary {
     }
 
     private void initSpinner(Spinner a, final int array) {
-        a.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_spinner_item,
+        a.setAdapter(new ArrayAdapter<>(getActivity(), android.R.layout.simple_spinner_item,
                 getResources().getStringArray(array)));
         ((ArrayAdapter) a.getAdapter()).setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         if (array == R.array.filtering)

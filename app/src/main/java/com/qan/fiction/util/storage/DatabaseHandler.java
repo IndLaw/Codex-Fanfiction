@@ -155,9 +155,9 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         Cursor c = db.query(true, TABLE_SEARCH, null, null, null,
                 null, null, KEY_VALUE + " DESC", "50");
-        ArrayList<SerPair<String, Integer>> list = new ArrayList<SerPair<String, Integer>>();
+        ArrayList<SerPair<String, Integer>> list = new ArrayList<>();
         while (c.moveToNext())
-            list.add(new SerPair<String, Integer>(c.getString(0), c.getInt(1)));
+            list.add(new SerPair<>(c.getString(0), c.getInt(1)));
         c.close();
         db.close();
         return list;
@@ -236,7 +236,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         SQLiteDatabase db = getReadableDatabase();
         if (site == Settings.ALL) {
             Cursor c = db.rawQuery("SELECT * FROM " + TABLE_STORY, null);
-            ArrayList<Entry> list = new ArrayList<Entry>();
+            ArrayList<Entry> list = new ArrayList<>();
             while (c.moveToNext())
                 list.add(nextEntry(c));
             c.close();
@@ -245,7 +245,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
         } else {
             Cursor c = db.query(TABLE_STORY, null, KEY_SITE + "=?",
                     new String[]{Settings.site(site)}, null, null, null, null);
-            ArrayList<Entry> list = new ArrayList<Entry>();
+            ArrayList<Entry> list = new ArrayList<>();
             while (c.moveToNext())
                 list.add(nextEntry(c));
             c.close();

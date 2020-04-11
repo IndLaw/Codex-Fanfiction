@@ -165,7 +165,7 @@ public class FF_Extract {
 
     public static ArrayList<CategoryInfo> getCategories(Document doc) {
         Elements e = doc.select("#list_output div");
-        ArrayList<CategoryInfo> result = new ArrayList<CategoryInfo>();
+        ArrayList<CategoryInfo> result = new ArrayList<>();
         for (int i = 0; i < e.size(); i++) {
             Elements list = e.get(i).children();
             String cat = list.get(0).text();
@@ -181,19 +181,18 @@ public class FF_Extract {
     }
 
     public static HashMap<String, ArrayList<SerPair<String, String>>> getFields(Document doc) {
-        HashMap<String, ArrayList<SerPair<String, String>>> map = new HashMap<String,
-                ArrayList<SerPair<String, String>>>();
+        HashMap<String, ArrayList<SerPair<String, String>>> map = new HashMap<>();
         Elements s = doc.select("#content_wrapper_inner select");
         for (int i = 0; i < s.size(); i++) {
-            ArrayList<SerPair<String, String>> keyvals = new ArrayList<SerPair<String, String>>();
+            ArrayList<SerPair<String, String>> keyvals = new ArrayList<>();
             Elements t = s.get(i).select("option");
             for (int j = 0; j < t.size(); j++) {
                 String value = t.get(j).attr("value");
                 String name = t.get(j).text();
                 if (t.get(j).hasAttr("selected"))
-                    keyvals.add(new SerPair<String, String>(SELECTED_STRING, t.get(j).text()));
+                    keyvals.add(new SerPair<>(SELECTED_STRING, t.get(j).text()));
                 if (!value.equals("-1") && !name.equals("-"))
-                    keyvals.add(new SerPair<String, String>(name, value));
+                    keyvals.add(new SerPair<>(name, value));
             }
             map.put(s.get(i).attr("name"), keyvals);
         }
@@ -202,7 +201,7 @@ public class FF_Extract {
     }
 
     public static ArrayList<String> getOrder(Document doc) {
-        ArrayList<String> order = new ArrayList<String>();
+        ArrayList<String> order = new ArrayList<>();
         Elements s = doc.select("#content_wrapper_inner select");
         for (int i = 0; i < s.size(); i++) {
             order.add(s.get(i).attr("name"));
@@ -212,7 +211,7 @@ public class FF_Extract {
     }
 
     public static ArrayList<Entry> getEntries(Document doc, String category, String site) {
-        ArrayList<Entry> s = new ArrayList<Entry>();
+        ArrayList<Entry> s = new ArrayList<>();
         Element a = doc.select("#content_wrapper_inner").get(0);
         Elements b = a.select("div.xgray");
         Elements c = a.select("a.stitle");
@@ -267,7 +266,7 @@ public class FF_Extract {
     }
 
     public static ArrayList<CommunityInfo> getCommunityInfo(Document doc) {
-        ArrayList<CommunityInfo> communities = new ArrayList<CommunityInfo>();
+        ArrayList<CommunityInfo> communities = new ArrayList<>();
         Elements a = doc.select("#content_wrapper_inner");
         Elements b = a.select("div a");
         Elements c = a.select("div.z-indent");
@@ -325,7 +324,7 @@ public class FF_Extract {
     public static ArrayList<CategoryInfo> getCommunities(Document doc) {
         Elements e = doc.select("#list_output a");
         Elements f = doc.select("#list_output span");
-        ArrayList<CategoryInfo> result = new ArrayList<CategoryInfo>();
+        ArrayList<CategoryInfo> result = new ArrayList<>();
         for (int i = 0; i < e.size(); i++) {
             String cat = e.get(i).text();
             String value = f.get(i).text().replaceAll("[\\(\\)]", "");
@@ -337,7 +336,7 @@ public class FF_Extract {
 
     public static ArrayList<String> getExclude(Document doc) {
         Elements e = doc.select("select.filter_select_negative");
-        ArrayList<String> elements = new ArrayList<String>();
+        ArrayList<String> elements = new ArrayList<>();
         for (int i = 0; i < e.size(); i++) {
             elements.add(e.get(i).attr("name"));
         }
@@ -345,7 +344,7 @@ public class FF_Extract {
     }
 
     public static ArrayList<SearchInfo> getSearchedInfo(Document doc) {
-        ArrayList<SearchInfo> info = new ArrayList<SearchInfo>();
+        ArrayList<SearchInfo> info = new ArrayList<>();
         Elements e = doc.select("#content_wrapper_inner tbody");
         if (e.size() > 2) {
             e = e.get(2).select("tr");
@@ -367,7 +366,7 @@ public class FF_Extract {
     }
 
     public static ArrayList<Entry> getEntries(Document doc, String site) {
-        ArrayList<String> s = new ArrayList<String>();
+        ArrayList<String> s = new ArrayList<>();
         Elements e = doc.select("#content_wrapper_inner div.xgray");
         for (int i = 0; i < e.size(); i++) {
             String[] split = e.get(i).text().split(" - ");

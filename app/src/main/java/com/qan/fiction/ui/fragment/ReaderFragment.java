@@ -86,7 +86,7 @@ public class ReaderFragment extends AppCompatFragment {
         void onReview(Entry e);
     }
 
-    private final ArrayList<Page> tasks = new ArrayList<Page>();
+    private final ArrayList<Page> tasks = new ArrayList<>();
 
 
     private class CustomDetector extends GestureDetector.SimpleOnGestureListener {
@@ -483,7 +483,7 @@ public class ReaderFragment extends AppCompatFragment {
 
 
     ArrayList<String> getStrings() {
-        ArrayList<String> s = new ArrayList<String>();
+        ArrayList<String> s = new ArrayList<>();
         for (int i = 1; i <= getChapters(); i++) {
             s.add("Chapter " + i);
         }

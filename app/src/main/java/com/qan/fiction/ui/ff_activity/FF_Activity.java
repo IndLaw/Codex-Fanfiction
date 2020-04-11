@@ -22,17 +22,22 @@ public class FF_Activity extends AbsWebActivity  {
             @Override
             public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
                 String s = tab.getText().toString();
-                if (s.equals("Categories")) {
-                    openTab(new FF_Browser(), ft);
-                } else if (s.equals("X-Overs")) {
-                    openTab(new FF_Crossover(), ft);
-                } else if (s.equals("Communities")) {
-                    openTab(new FF_Community(), ft);
-                } else {
-                    Bundle b = new Bundle();
-                    b.putString("url", "https://www.fanfiction.net/j/");
-                    b.putString("name", getString(R.string.ff_net));
-                    openTab(new FF_Recent(), ft, b);
+                switch (s) {
+                    case "Categories":
+                        openTab(new FF_Browser(), ft);
+                        break;
+                    case "X-Overs":
+                        openTab(new FF_Crossover(), ft);
+                        break;
+                    case "Communities":
+                        openTab(new FF_Community(), ft);
+                        break;
+                    default:
+                        Bundle b = new Bundle();
+                        b.putString("url", "https://www.fanfiction.net/j/");
+                        b.putString("name", getString(R.string.ff_net));
+                        openTab(new FF_Recent(), ft, b);
+                        break;
                 }
             }
 

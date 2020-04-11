@@ -33,7 +33,7 @@ public class AO3_Extract {
     }
 
     private static SerPair<String, String> p(String a, String b) {
-        return new SerPair<String, String>(a, b);
+        return new SerPair<>(a, b);
     }
 
     public static Entry extract(Document doc, String site, int id) {
@@ -130,7 +130,7 @@ public class AO3_Extract {
 
     public static ArrayList<CategoryInfo> getCategories(Document doc) {
         Elements e = doc.select("#main ul.tags > li");
-        ArrayList<CategoryInfo> items = new ArrayList<CategoryInfo>();
+        ArrayList<CategoryInfo> items = new ArrayList<>();
         for (int i = 0; i < e.size(); i++) {
             Element a = e.get(i).select("a").get(0);
             String name = a.text();
@@ -143,22 +143,22 @@ public class AO3_Extract {
     }
 
     public static HashMap<String, ArrayList<SerPair<String, String>>> getFields(Document doc) {
-        HashMap<String, ArrayList<SerPair<String, String>>> map = new HashMap<String, ArrayList<SerPair<String, String>>>();
+        HashMap<String, ArrayList<SerPair<String, String>>> map = new HashMap<>();
         Elements s = doc.select("#main select");
         for (int i = 0; i < s.size(); i++) {
-            ArrayList<SerPair<String, String>> keyvals = new ArrayList<SerPair<String, String>>();
+            ArrayList<SerPair<String, String>> keyvals = new ArrayList<>();
             Elements t = s.get(i).select("option");
             for (int j = 0; j < t.size(); j++) {
                 String value = t.get(j).attr("value");
                 String name = t.get(j).text();
                 if (t.get(j).hasAttr("selected"))
-                    keyvals.add(new SerPair<String, String>(SELECTED_STRING, t.get(j).text()));
+                    keyvals.add(new SerPair<>(SELECTED_STRING, t.get(j).text()));
                 if (!value.equals("-1") && !name.equals("-"))
-                    keyvals.add(new SerPair<String, String>(name, value));
+                    keyvals.add(new SerPair<>(name, value));
             }
             map.put(s.get(i).attr("name"), keyvals);
         }
-        ArrayList<SerPair<String, String>> temp = new ArrayList<SerPair<String, String>>(list);
+        ArrayList<SerPair<String, String>> temp = new ArrayList<>(list);
         map.put("work_search[rating_ids]", temp);
         s = doc.select("dd[id=tag_category_rating] li");
         if (s.select("input[checked]").size() == 1)
@@ -168,7 +168,7 @@ public class AO3_Extract {
     }
 
     public static ArrayList<String> getOrder(Document doc) {
-        ArrayList<String> order = new ArrayList<String>();
+        ArrayList<String> order = new ArrayList<>();
         Elements s = doc.select("#main select");
         for (int i = 0; i < s.size(); i++) {
             order.add(s.get(i).attr("name"));
@@ -183,7 +183,7 @@ public class AO3_Extract {
         //using string builder for concatenation, then dumping info to new entry
         StringBuilder stringDump = new StringBuilder();
 
-        ArrayList<Entry> list = new ArrayList<Entry>();
+        ArrayList<Entry> list = new ArrayList<>();
         Elements articles = doc.select("li.work");
         Elements date = articles.select("p.datetime");
         for (int i = 0; i < articles.size(); i++) {

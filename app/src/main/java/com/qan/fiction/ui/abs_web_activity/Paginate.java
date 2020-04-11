@@ -226,7 +226,7 @@ public abstract class Paginate<T extends Serializable> extends AppCompatListFrag
         if (list != null)
             list.remove(list.size() - 1);
         else
-            list = new ArrayList<T>();
+            list = new ArrayList<>();
         total = getTotal(doc);
         list.addAll(getListItems(doc));
         StreamAdapter<T> adapter = getAdapter();
@@ -297,7 +297,7 @@ public abstract class Paginate<T extends Serializable> extends AppCompatListFrag
         category = b.getString("name");
         url = b.getString("url");
         setHasOptionsMenu(true);
-        data = new HashMap<String, String>();
+        data = new HashMap<>();
         if (saved == null || !saved.containsKey("entries") || saved.getSerializable("entries") == null) {
             page = 0;
             next = 0;
@@ -371,7 +371,7 @@ public abstract class Paginate<T extends Serializable> extends AppCompatListFrag
         LinearLayout layout = new LinearLayout(getActivity());
         layout.setOrientation(LinearLayout.VERTICAL);
 
-        bundles = new ArrayList<ViewBundle>();
+        bundles = new ArrayList<>();
         makeExtras(bundles, layout);
         for (String s : order) {
             ViewBundle bundle = makeSpinner(s);
@@ -407,7 +407,7 @@ public abstract class Paginate<T extends Serializable> extends AppCompatListFrag
     }
 
     public HashMap<String, String> transferData() {
-        HashMap<String, String> transfer = new HashMap<String, String>();
+        HashMap<String, String> transfer = new HashMap<>();
         for (ViewBundle bundle : bundles) {
             int count = 1;
             while (transfer.containsKey(bundle.name + (count == 1 ? "" : count)))
@@ -428,7 +428,7 @@ public abstract class Paginate<T extends Serializable> extends AppCompatListFrag
     private ViewBundle makeSpinner(String item) {
         final ViewBundle bundle = new ViewBundle();
         bundle.name = item;
-        ArrayList<SerPair<String, String>> map = new ArrayList<SerPair<String, String>>(fields.get(item));
+        ArrayList<SerPair<String, String>> map = new ArrayList<>(fields.get(item));
         String selected = null;
         for (int i = 0; i < map.size(); i++)
             if (map.get(i).first.equals(SELECTED_STRING)) {

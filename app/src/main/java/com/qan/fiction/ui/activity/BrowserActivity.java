@@ -24,12 +24,16 @@ public class BrowserActivity extends BaseActivity implements ReaderFragmentListe
             b.putInt("chapters", 0);
             b.putString("title", getString(R.string.loading_page));
             String site = b.getString("site");
-            if (site.equals(Constants.FF_NET_S)) {
-                openFragment(new FF_BrowserReader(), b, false);
-            } else if (site.equals(Constants.FP_COM_S)) {
-                openFragment(new FP_BrowserReader(), b, false);
-            } else if (site.equals(Constants.AO3_S)) {
-                openFragment(new AO3_BrowserReader(), b, false);
+            switch (site) {
+                case Constants.FF_NET_S:
+                    openFragment(new FF_BrowserReader(), b, false);
+                    break;
+                case Constants.FP_COM_S:
+                    openFragment(new FP_BrowserReader(), b, false);
+                    break;
+                case Constants.AO3_S:
+                    openFragment(new AO3_BrowserReader(), b, false);
+                    break;
             }
         }
     }

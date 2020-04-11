@@ -36,47 +36,47 @@ public class StoryUtils {
     private static final SparseArray<Comparator<Entry>> compare;
 
     static {
-        compare = new SparseArray<Comparator<Entry>>();
+        compare = new SparseArray<>();
         compare.put(SORT_DOWNLOAD, new Comparator<Entry>() {
             @Override
             public int compare(Entry a, Entry b) {
-                return -Long.valueOf(a.time).compareTo(b.time);
+                return -Long.compare(a.time, b.time);
             }
         });
         compare.put(SORT_UPDATE, new Comparator<Entry>() {
             @Override
             public int compare(Entry a, Entry b) {
-                return -Long.valueOf(a.update).compareTo(b.update);
+                return -Long.compare(a.update, b.update);
             }
         });
         compare.put(SORT_PUBLISH, new Comparator<Entry>() {
             @Override
             public int compare(Entry a, Entry b) {
-                return -Long.valueOf(a.publish).compareTo(b.publish);
+                return -Long.compare(a.publish, b.publish);
             }
         });
         compare.put(SORT_REVIEWS, new Comparator<Entry>() {
             @Override
             public int compare(Entry a, Entry b) {
-                return -Integer.valueOf(a.reviews).compareTo(b.reviews);
+                return -Integer.compare(a.reviews, b.reviews);
             }
         });
         compare.put(SORT_FAVS, new Comparator<Entry>() {
             @Override
             public int compare(Entry a, Entry b) {
-                return -Integer.valueOf(a.favorites).compareTo(b.favorites);
+                return -Integer.compare(a.favorites, b.favorites);
             }
         });
         compare.put(SORT_FOLLOWS, new Comparator<Entry>() {
             @Override
             public int compare(Entry a, Entry b) {
-                return -Integer.valueOf(a.follows).compareTo(b.follows);
+                return -Integer.compare(a.follows, b.follows);
             }
         });
         compare.put(SORT_WORDS, new Comparator<Entry>() {
             @Override
             public int compare(Entry a, Entry b) {
-                return -Integer.valueOf(a.words).compareTo(b.words);
+                return -Integer.compare(a.words, b.words);
             }
         });
     }
@@ -116,7 +116,7 @@ public class StoryUtils {
     public static ArrayList<ListGroup> getGroups(Context context, List<Entry> entries,
                                                  int site, int filter, int sort, int status) {
         if (entries.isEmpty())
-            return new ArrayList<ListGroup>();
+            return new ArrayList<>();
         if (status == COMPLETE || status == IN_PROGRESS) {
             boolean complete = status == COMPLETE;
             for (int i = 0; i < entries.size(); i++)
@@ -124,7 +124,7 @@ public class StoryUtils {
                     entries.remove(i--);
         }
 
-        TreeMap<String, List<Entry>> map = new TreeMap<String, List<Entry>>();
+        TreeMap<String, List<Entry>> map = new TreeMap<>();
         if (filter == FILTER_ALL) {
             if (site == Settings.ALL)
                 map.put("All", entries);
@@ -152,27 +152,27 @@ public class StoryUtils {
                 map.get(e.author).add(e);
             }
         } else if (filter == FILTER_STARRED) {
-            ArrayList<Entry> list = new ArrayList<Entry>();
+            ArrayList<Entry> list = new ArrayList<>();
             for (Entry a : entries)
                 if (Settings.isStarred(context, a.file))
                     list.add(a);
             if (list.isEmpty())
-                return new ArrayList<ListGroup>();
+                return new ArrayList<>();
             map.put("Starred", list);
         } else if (filter == FILTER_UNREAD) {
-            ArrayList<Entry> list = new ArrayList<Entry>();
+            ArrayList<Entry> list = new ArrayList<>();
             for (Entry a : entries)
                 if (Settings.isRead(context, a.file))
                     list.add(a);
             if (list.isEmpty())
-                return new ArrayList<ListGroup>();
+                return new ArrayList<>();
             map.put("Unread", list);
         }
 
-        ArrayList<ListGroup> list = new ArrayList<ListGroup>();
+        ArrayList<ListGroup> list = new ArrayList<>();
         for (String s : map.keySet()) {
             Collections.sort(map.get(s), compare.get(sort));
-            ArrayList<ListChild> child = new ArrayList<ListChild>();
+            ArrayList<ListChild> child = new ArrayList<>();
             int unread = 0;
             for (Entry e : map.get(s))
                 if (Settings.isRead(context, e.file))

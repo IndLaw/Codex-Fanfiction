@@ -45,8 +45,8 @@ public class StoryDownload extends Service {
     /**
      * This is here to stop simultaneous downloads of the same same files
      */
-    private final HashSet<String> stoppedDownloads = new HashSet<String>();
-    private final Set<Messenger> clients = new CopyOnWriteArraySet<Messenger>();
+    private final HashSet<String> stoppedDownloads = new HashSet<>();
+    private final Set<Messenger> clients = new CopyOnWriteArraySet<>();
 
     private final Messenger mMessenger = new Messenger(new IncomingHandler()); // Target we publish for clients to send messages to IncomingHandler.
     private DatabaseHandler db;
@@ -79,7 +79,7 @@ public class StoryDownload extends Service {
     }
 
     private void toast(String message) {
-        List<Messenger> remove = new ArrayList<Messenger>();
+        List<Messenger> remove = new ArrayList<>();
         for (Messenger client : clients) {
             try {
                 Message m = Message.obtain(null, MSG_TOAST);
@@ -99,7 +99,7 @@ public class StoryDownload extends Service {
      * Called when the story information retrieval is done, regardless of it it succeeded or not.
      */
     private void stopProgress() {
-        List<Messenger> remove = new ArrayList<Messenger>();
+        List<Messenger> remove = new ArrayList<>();
         for (Messenger client : clients) {
             try {
                 client.send(Message.obtain(null, MSG_STOP));
@@ -112,7 +112,7 @@ public class StoryDownload extends Service {
     }
 
     private void done() {
-        List<Messenger> remove = new ArrayList<Messenger>();
+        List<Messenger> remove = new ArrayList<>();
         for (Messenger client : clients) {
             try {
                 // Send data as an Integer

@@ -69,7 +69,7 @@ public class FP_Community_List extends Paginate<CommunityInfo> {
 
     @Override
     protected ArrayList<String> getExclude(Document doc) {
-        return new ArrayList<String>();
+        return new ArrayList<>();
     }
 
     @Override

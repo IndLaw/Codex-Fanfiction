@@ -25,7 +25,7 @@ public abstract class TransferStrategy implements DownloadListener {
         this.context = context;
         this.db = db;
         this.manager = manager;
-        listeners = new ArrayList<ProgressListener>();
+        listeners = new ArrayList<>();
     }
 
     public void startTransfer(Collection<String> stoppedDownloads) {

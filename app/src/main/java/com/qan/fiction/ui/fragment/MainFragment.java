@@ -176,7 +176,7 @@ public class MainFragment extends AppCompatListFragment {
     private ListView getPopupBrowser(final AlertDialog d) {
         ListView v = new ListView(getActivity());
         String[] names = getResources().getStringArray(R.array.sites_web);
-        v.setAdapter(new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, names));
+        v.setAdapter(new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, names));
         v.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -214,23 +214,33 @@ public class MainFragment extends AppCompatListFragment {
 
     private void openBrowser(String site) {
         Class next = null;
-        if (site.equals(Constants.FF_NET_S))
-            next = FF_Activity.class;
-        else if (site.equals(Constants.FP_COM_S))
-            next = FP_Activity.class;
-        else if (site.equals(Constants.AO3_S))
-            next = AO3_Activity.class;
+        switch (site) {
+            case Constants.FF_NET_S:
+                next = FF_Activity.class;
+                break;
+            case Constants.FP_COM_S:
+                next = FP_Activity.class;
+                break;
+            case Constants.AO3_S:
+                next = AO3_Activity.class;
+                break;
+        }
         Intent i = new Intent(getActivity(), next);
         startActivity(i);
     }
 
     private void openSearch(String site) {
-        if (site.equals(Constants.FF_NET_S))
-            callback.openFragment(new FF_Container(), new Bundle());
-        else if (site.equals(Constants.FP_COM_S))
-            callback.openFragment(new FP_Container(), new Bundle());
-        else if (site.equals(Constants.AO3_S))
-            callback.openFragment(new AO3_Container(), new Bundle());
+        switch (site) {
+            case Constants.FF_NET_S:
+                callback.openFragment(new FF_Container(), new Bundle());
+                break;
+            case Constants.FP_COM_S:
+                callback.openFragment(new FP_Container(), new Bundle());
+                break;
+            case Constants.AO3_S:
+                callback.openFragment(new AO3_Container(), new Bundle());
+                break;
+        }
     }
 
 }

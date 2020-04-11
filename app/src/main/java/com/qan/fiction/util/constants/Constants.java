@@ -26,15 +26,15 @@ public class Constants {
     public static final String FF_NET_S = "ff_net";
 
     static {
-        siteInfo = new HashMap<String, String>();
-        mobileReader = new HashMap<String, String>();
-        elementID = new HashMap<String, String>();
-        siteName = new HashMap<String, String>();
-        download = new HashMap<String, String>();
-        normalSite = new HashMap<String, String>();
-        mobileSite = new HashMap<String, String>();
-        normalView = new HashMap<String, String>();
-        mobileView = new HashMap<String, String>();
+        siteInfo = new HashMap<>();
+        mobileReader = new HashMap<>();
+        elementID = new HashMap<>();
+        siteName = new HashMap<>();
+        download = new HashMap<>();
+        normalSite = new HashMap<>();
+        mobileSite = new HashMap<>();
+        normalView = new HashMap<>();
+        mobileView = new HashMap<>();
         //Where to extract the info
         siteInfo.put(FF_NET_S, "https://www.fanfiction.net/s/?/1/");
         siteInfo.put(FP_COM_S, "https://www.fictionpress.com/s/?/1/");

@@ -33,7 +33,7 @@ public class TransferManager {
     public TransferManager(String site, int storyId) {
         this.site = site;
         this.storyId = storyId;
-        listeners = new ArrayList<DownloadListener>();
+        listeners = new ArrayList<>();
     }
 
     /**

@@ -180,7 +180,7 @@ public class ExpandListAdapter extends BaseExpandableListAdapter {
      * @return All the entries currently backed by the adapter.
      */
     public List<Entry> getEntries() {
-        ArrayList<Entry> all = new ArrayList<Entry>();
+        ArrayList<Entry> all = new ArrayList<>();
         for (ListGroup group : groups) {
             for (ListChild child : group.getChildren()) {
                 all.add(child.getEntry());
