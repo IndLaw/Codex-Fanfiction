@@ -1,16 +1,19 @@
 package com.qan.fiction.util.download;
 
+import android.app.AlertDialog;
 import android.app.Notification;
 import android.app.NotificationChannel;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.app.Service;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.*;
 import android.support.v4.app.NotificationCompat;
 import android.support.v4.app.TaskStackBuilder;
 import android.text.Html;
+
 import com.qan.fiction.R;
 import com.qan.fiction.ui.activity.ForwardActivity;
 import com.qan.fiction.ui.activity.Global;
@@ -22,11 +25,16 @@ import com.qan.fiction.util.storage.DatabaseHandler;
 import com.qan.fiction.util.storage.FileFormatter;
 import com.qan.fiction.util.storage.entries.Entry;
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.concurrent.CopyOnWriteArraySet;
+
+import javax.net.ssl.HttpsURLConnection;
 
 import static java.lang.System.currentTimeMillis;
 
@@ -138,6 +146,7 @@ public class StoryDownload extends Service {
                 public void run() {
                     Looper.prepare();
                     download(site, id);
+
                 }
             }.start();
         } else if (intent.getExtras().containsKey("update")) {
@@ -177,6 +186,22 @@ public class StoryDownload extends Service {
      * Downloads the given story ID from the given site.
      */
     public void download(String site, int id, boolean isNewDownload) {
+
+        //check web page status before attempting to retrieve data
+        System.out.println(site + "--------------------------------------------------------------------------------");
+        try {
+            URL url = new URL(site);
+
+            HttpsURLConnection huc = (HttpsURLConnection) url.openConnection();
+            huc.setRequestMethod("HEAD");
+            if (!(huc.getResponseCode() == HttpsURLConnection.HTTP_OK)) {
+                alertDialog();
+                return;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         final TransferManager manager = new TransferManager(site, id);
         DatabaseHandler handler = new DatabaseHandler(this);
         final DownloadStrategy downloadManager = new DownloadStrategy(this, handler, manager, isNewDownload);
@@ -340,5 +365,24 @@ public class StoryDownload extends Service {
                 .setWhen(start);
     }
 
+    private void alertDialog(){
+        new AlertDialog.Builder(this)
+                .setTitle("Delete entry")
+                .setMessage("Are you sure you want to delete this entry?")
+
+                // Specifying a listener allows you to take an action before dismissing the dialog.
+                // The dialog is automatically dismissed when a dialog button is clicked.
+                .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int which) {
+                        // Continue with delete operation
+                    }
+                })
+
+                // A null listener allows the button to dismiss the dialog and take no further action.
+                .setNegativeButton(android.R.string.no, null)
+                .setIcon(android.R.drawable.ic_dialog_alert)
+                .show();
+
+    }
 
 }

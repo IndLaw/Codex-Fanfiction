@@ -8,6 +8,7 @@ android {
         applicationId "com.qan.fiction"
         minSdkVersion 19
         targetSdkVersion 28
+        multiDexEnabled = true
     }
 
     repositories {

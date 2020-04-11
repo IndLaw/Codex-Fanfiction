@@ -4,10 +4,14 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Build;
+
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.Map;
 
 public class Connector {
@@ -99,6 +103,16 @@ public class Connector {
                 else
                     throw ex;
             }
+        }
+        try {
+            URL site = new URL(url);
+            HttpURLConnection huc = (HttpURLConnection) site.openConnection();
+            if (!(huc.getResponseCode() == HttpURLConnection.HTTP_OK)) {
+
+                return null;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
         }
         //Should never reach this point.
         return null;

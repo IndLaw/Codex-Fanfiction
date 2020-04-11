@@ -75,7 +75,7 @@ public class BookExport {
         setTime(e.publish, Date.Event.PUBLICATION, book);
         setTime(e.update, Date.Event.MODIFICATION, book);
         setTime(System.currentTimeMillis(), Date.Event.CREATION, book);
-        book.getMetadata().addPublisher(Constants.siteNAme.get(e.site));
+        book.getMetadata().addPublisher(Constants.siteName.get(e.site));
     }
 
     private static void setTime(long time, Date.Event event, Book book) {

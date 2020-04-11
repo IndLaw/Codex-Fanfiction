@@ -5,7 +5,7 @@ import java.util.HashMap;
 public class Constants {
     public static final HashMap<String, String> elementID;
     public static final HashMap<String, String> siteInfo, mobileReader;
-    public static final HashMap<String, String> siteNAme;
+    public static final HashMap<String, String> siteName;
     public static final HashMap<String, String> download;
     public static final HashMap<String, String> normalSite, mobileSite, normalView, mobileView;
 
@@ -25,7 +25,7 @@ public class Constants {
         siteInfo = new HashMap<String, String>();
         mobileReader = new HashMap<String, String>();
         elementID = new HashMap<String, String>();
-        siteNAme = new HashMap<String, String>();
+        siteName = new HashMap<String, String>();
         download = new HashMap<String, String>();
         normalSite = new HashMap<String, String>();
         mobileSite = new HashMap<String, String>();
@@ -34,19 +34,19 @@ public class Constants {
         //Where to extract the info
         siteInfo.put(FF_NET_S, "https://www.fanfiction.net/s/?/1/");
         siteInfo.put(FP_COM_S, "https://www.fictionpress.com/s/?/1/");
-        siteInfo.put(AO3_S, "http://archiveofourown.org/works/??view_adult=true");
+        siteInfo.put(AO3_S, "https://archiveofourown.org/works/??view_adult=true");
         //id for the story text. It's most likely tagged directly, or close enough
         elementID.put(FF_NET_S, "storycontent");
         elementID.put(FP_COM_S, "storycontent");
         elementID.put(AO3_S, "chapters");
         //Site names
-        siteNAme.put(FF_NET_S, "FanFiction.net");
-        siteNAme.put(FP_COM_S, "FictionPress.com");
-        siteNAme.put(AO3_S, "Archive of Our Own");
+        siteName.put(FF_NET_S, "FanFiction.net");
+        siteName.put(FP_COM_S, "FictionPress.com");
+        siteName.put(AO3_S, "Archive of Our Own");
         //Download location. Maybe be faster.
         download.put(FF_NET_S, "https://m.fanfiction.net/s/?/?");
         download.put(FP_COM_S, "https://m.fictionpress.com/s/?/?");
-        download.put(AO3_S, "http://archiveofourown.org/works/?/chapters/??view_adult=true");
+        download.put(AO3_S, "https://archiveofourown.org/works/?/chapters/??view_adult=true");
         //main page
         normalSite.put(FF_NET_S, "https://www.fanfiction.net");
         normalSite.put(FP_COM_S, "https://www.fictionpress.com/");
@@ -58,11 +58,11 @@ public class Constants {
         //Where to view the stories
         normalView.put(FF_NET_S, "https://www.fanfiction.net/s/?/?");
         normalView.put(FP_COM_S, "https://www.fictionpress.com/s/?/?");
-        normalView.put(AO3_S, "http://archiveofourown.org/works/??view_adult=true");
+        normalView.put(AO3_S, "https://archiveofourown.org/works/??view_adult=true");
         //mobile site info
         mobileView.put(FF_NET_S, "https://m.fanfiction.net/s/?/?");
         mobileView.put(FP_COM_S, "https://m.fictionpress.com/s/?/?");
-        mobileView.put(AO3_S, "http://archiveofourown.org/works/??view_adult=true");
+        mobileView.put(AO3_S, "https://archiveofourown.org/works/??view_adult=true");
 
     }
 }

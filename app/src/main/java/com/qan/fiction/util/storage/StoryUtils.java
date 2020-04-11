@@ -129,7 +129,7 @@ public class StoryUtils {
             if (site == Settings.ALL)
                 map.put("All", entries);
             else
-                map.put(Constants.siteNAme.get(Settings.site(site)), entries);
+                map.put(Constants.siteName.get(Settings.site(site)), entries);
         } else if (filter == FILTER_CATEGORY) {
             for (Entry e : entries) {
                 List<String> list = e.getCategories();

@@ -31,7 +31,7 @@
     <string name="view_browser">View in Browser</string>
     <string name="cannot_save">Cannot save content on this page.</string>
     <string name="downloading">Downloading</string>
-    <string name="geting_info">Getting story info.</string>
+    <string name="getting_info">Getting story info.</string>
     <string name="loading">Loading</string>
     <string name="reading_disk">Reading chapter from disk.</string>
     <string name="no">No</string>

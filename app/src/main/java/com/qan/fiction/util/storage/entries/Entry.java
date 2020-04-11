@@ -56,7 +56,7 @@ public abstract class Entry implements Serializable {
         b.setTimeInMillis(time);
 
         StringBuilder s = new StringBuilder();
-        s.append("<b>Site: </b>").append(Constants.siteNAme.get(site))
+        s.append("<b>Site: </b>").append(Constants.siteName.get(site))
                 .append("<br/><b>Author: </b> ").append(getAuthor())
                 .append(getCategoryString())
                 .append("<br/><b>").append(genreName()).append("</b>").append(getGenreString())
@@ -85,7 +85,7 @@ public abstract class Entry implements Serializable {
         b.setTimeInMillis(time);
 
         StringBuilder s = new StringBuilder();
-        s.append("<b>Site: </b>").append(Constants.siteNAme.get(site))
+        s.append("<b>Site: </b>").append(Constants.siteName.get(site))
                 .append("<br/><b>Author: </b> ").append(getAuthor())
                 .append(getCategoryString())
                 .append("<br/><b>").append(genreName()).append("</b>").append(getGenreString())

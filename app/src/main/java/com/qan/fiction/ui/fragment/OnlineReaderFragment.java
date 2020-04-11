@@ -130,6 +130,7 @@ public abstract class OnlineReaderFragment extends ReaderFragment {
     }
 
     public String getUrl() {
+        System.out.println(dataManager.getUrl());
         return dataManager.getUrl();
     }
 

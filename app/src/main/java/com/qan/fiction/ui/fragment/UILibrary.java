@@ -110,7 +110,7 @@ public class UILibrary extends AppCompatFragment {
                     i.putExtra("redownload", true);
                     i.putExtra("site", e.site);
                     setD(ProgressDialog.show(getActivity(), getString(R.string.downloading),
-                            getString(R.string.geting_info)));
+                            getString(R.string.getting_info)));
                     getActivity().startService(i);
 
                     update();
@@ -192,7 +192,7 @@ public class UILibrary extends AppCompatFragment {
         intent.putExtra("update", true);
         if (showDialog)
             setD(ProgressDialog.show(getActivity(), getString(R.string.downloading),
-                    getString(R.string.geting_info)));
+                    getString(R.string.getting_info)));
         getActivity().startService(intent);
     }
 
@@ -272,7 +272,7 @@ public class UILibrary extends AppCompatFragment {
                     i.putExtra("download", true);
                     i.putExtra("site", value[0]);
                     setD(ProgressDialog.show(getActivity(), getString(R.string.downloading),
-                            getString(R.string.geting_info)));
+                            getString(R.string.getting_info)));
                     getActivity().startService(i);
                 } catch (NumberFormatException e) {
                     e.printStackTrace();

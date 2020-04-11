@@ -131,7 +131,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ViewList
         } catch (RemoteException e1) {
             e1.printStackTrace();
         }
-        d = ProgressDialog.show(this, getString(R.string.downloading), getString(R.string.geting_info), true);
+        d = ProgressDialog.show(this, getString(R.string.downloading), getString(R.string.getting_info), true);
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
             // TODO: properly support background downloads on O+ devices by starting foreground
             // service.
