@@ -1,6 +1,7 @@
 package com.qan.fiction.ui.abs_web_activity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.res.TypedArray;
@@ -280,8 +281,9 @@ public abstract class Paginate<T extends Serializable> extends AppCompatListFrag
 
 
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        Activity activity = context instanceof Activity ? (Activity) context : null;
 
         try {
             setViewListener((ViewListener) activity);

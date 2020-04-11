@@ -2,6 +2,7 @@ package com.qan.fiction.ui.fragment;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
@@ -251,8 +252,9 @@ public class ReaderFragment extends AppCompatFragment {
     }
 
 
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        Activity activity = context instanceof Activity ? (Activity) context : null;
         try {
             ReaderFragmentListener callback = (ReaderFragmentListener) activity;
         } catch (ClassCastException e) {

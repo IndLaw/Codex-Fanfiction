@@ -2,6 +2,7 @@ package com.qan.fiction.ui.abs_web_activity;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -192,8 +193,9 @@ public abstract class Categories extends AppCompatListFragment implements Browsa
     }
 
     @Override
-    public void onAttach(Activity activity) {
-        super.onAttach(activity);
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        Activity activity = context instanceof Activity ? (Activity) context : null;
         setHasOptionsMenu(true);
         try {
             callback = (ViewListener) activity;
