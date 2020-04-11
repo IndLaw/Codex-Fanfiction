@@ -44,11 +44,9 @@ public abstract class BaseActivity extends AppCompatActivity implements ViewList
         setConnectionManager(new ConnectionManager(new ConnectionManager.OnMessageReceivedListener() {
             @Override
             public void onReceive(Message msg) {
-                switch (msg.what) {
-                    case MSG_STOP:
-                        if (d != null)
-                            d.cancel();
-                        break;
+                if (msg.what == MSG_STOP) {
+                    if (d != null)
+                        d.cancel();
                 }
             }
         }));

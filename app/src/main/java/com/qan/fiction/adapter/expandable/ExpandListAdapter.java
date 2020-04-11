@@ -75,7 +75,7 @@ public class ExpandListAdapter extends BaseExpandableListAdapter {
             t.setVisibility(View.GONE);
         else
             t.setText(child.getNote());
-        if (!Settings.isRead(context, child.getEntry().file)) {
+        if (Settings.isRead(context, child.getEntry().file)) {
 /*            if (Settings.isLightTheme(context))
                 v.setBackgroundResource(R.drawable.highlight);
             else

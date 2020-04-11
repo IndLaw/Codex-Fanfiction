@@ -31,6 +31,6 @@ public class CommunityAdapter extends StreamAdapter<CommunityInfo> {
 
     @Override
     public boolean isPlaceholder(CommunityInfo info) {
-        return info instanceof CommunityPlaceholder;
+        return !(info instanceof CommunityPlaceholder);
     }
 }

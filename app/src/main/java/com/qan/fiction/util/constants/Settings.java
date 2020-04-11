@@ -244,7 +244,7 @@ public class Settings {
 
     public static boolean isRead(Context context, String file) {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
-        return pref.getBoolean(file + "read", false);
+        return !pref.getBoolean(file + "read", false);
     }
 
     public static boolean isLightTheme(Context context) {

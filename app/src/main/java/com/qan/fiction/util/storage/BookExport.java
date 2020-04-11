@@ -11,6 +11,7 @@ import java.io.File;
 import java.io.FileOutputStream;
 import java.util.Arrays;
 import java.util.Calendar;
+import java.util.Collections;
 import java.util.GregorianCalendar;
 import java.util.TimeZone;
 
@@ -70,7 +71,7 @@ public class BookExport {
 
     private static void setMetadata(Entry e, Book book) {
         book.getMetadata().addTitle(e.title);
-        book.getMetadata().setAuthors(Arrays.asList(new Author(e.getAuthor(), "")));
+        book.getMetadata().setAuthors(Collections.singletonList(new Author(e.getAuthor(), "")));
         book.getMetadata().addDescription(e.description);
         setTime(e.publish, Date.Event.PUBLICATION, book);
         setTime(e.update, Date.Event.MODIFICATION, book);

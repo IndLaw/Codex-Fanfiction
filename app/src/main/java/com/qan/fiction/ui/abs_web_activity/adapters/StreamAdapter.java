@@ -39,7 +39,7 @@ public abstract class StreamAdapter<T> extends ArrayAdapter<T> {
 
     @Override
     public void add(T object) {
-        if (!isPlaceholder(object) || !finite)
+        if (isPlaceholder(object) || !finite)
             super.add(object);
     }
 
@@ -48,7 +48,7 @@ public abstract class StreamAdapter<T> extends ArrayAdapter<T> {
         View v = convert;
         T e = getItem(pos);
 
-        if (!isPlaceholder(e)) {
+        if (isPlaceholder(e)) {
             if (v == null || v.findViewById(R.id.row1) == null) {
                 if (Settings.isLightTheme(getContext()))
                     v = View.inflate(getContext(), R.layout.list_multi_mod, null);

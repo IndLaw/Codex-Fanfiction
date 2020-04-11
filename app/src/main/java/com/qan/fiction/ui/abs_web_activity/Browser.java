@@ -106,13 +106,11 @@ public abstract class Browser extends AppCompatListFragment implements Browsable
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.view_web_icon:
-                web_action();
-                return true;
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == R.id.view_web_icon) {
+            web_action();
+            return true;
         }
+        return super.onOptionsItemSelected(item);
     }
 
     public void web_action() {

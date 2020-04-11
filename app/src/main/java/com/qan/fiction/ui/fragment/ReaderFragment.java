@@ -337,7 +337,7 @@ public class ReaderFragment extends AppCompatFragment {
         }
 
 
-        if (saved == null || !reset(saved)) {
+        if (saved == null || reset(saved)) {
             //The story is just being opened
             int x = getResources().getConfiguration().orientation;
             int y = getActivity().getRequestedOrientation();
@@ -401,11 +401,11 @@ public class ReaderFragment extends AppCompatFragment {
 
     protected boolean reset(Bundle savedInstanceState) {
         if (!savedInstanceState.containsKey("text"))
-            return false;
+            return true;
         textView.setText(savedInstanceState.getCharSequence("text"));
         scroll(Settings.getOffset(getActivity(), getLocation()));
         set_listeners();
-        return true;
+        return false;
     }
 
     @Override

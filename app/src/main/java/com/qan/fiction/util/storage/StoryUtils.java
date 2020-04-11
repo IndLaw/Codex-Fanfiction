@@ -162,7 +162,7 @@ public class StoryUtils {
         } else if (filter == FILTER_UNREAD) {
             ArrayList<Entry> list = new ArrayList<Entry>();
             for (Entry a : entries)
-                if (!Settings.isRead(context, a.file))
+                if (Settings.isRead(context, a.file))
                     list.add(a);
             if (list.isEmpty())
                 return new ArrayList<ListGroup>();
@@ -175,7 +175,7 @@ public class StoryUtils {
             ArrayList<ListChild> child = new ArrayList<ListChild>();
             int unread = 0;
             for (Entry e : map.get(s))
-                if (!Settings.isRead(context, e.file))
+                if (Settings.isRead(context, e.file))
                     unread++;
 
             ListGroup group = new ListGroup(s, unread, child, filter);

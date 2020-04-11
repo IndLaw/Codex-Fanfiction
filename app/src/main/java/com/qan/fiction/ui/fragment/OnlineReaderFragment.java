@@ -155,7 +155,7 @@ public abstract class OnlineReaderFragment extends ReaderFragment {
     public boolean run(Bundle b, Bundle saved) {
         getInfo(b);
 
-        if (saved == null || !reset(saved)) {
+        if (saved == null || reset(saved)) {
             int x = getResources().getConfiguration().orientation;
             int y = getActivity().getRequestedOrientation();
             if (y == ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE && x != Configuration.ORIENTATION_LANDSCAPE ||

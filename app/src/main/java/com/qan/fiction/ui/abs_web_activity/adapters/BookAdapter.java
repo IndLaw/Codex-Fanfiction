@@ -21,7 +21,7 @@ public class BookAdapter extends StreamAdapter<Entry> {
 
     @Override
     public boolean isPlaceholder(Entry entry) {
-        return entry instanceof PlaceHolderEntry;
+        return !(entry instanceof PlaceHolderEntry);
     }
 
 

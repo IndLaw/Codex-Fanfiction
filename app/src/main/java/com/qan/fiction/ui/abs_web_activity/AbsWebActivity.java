@@ -82,18 +82,16 @@ public abstract class AbsWebActivity extends CoreActivity implements ViewListene
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
-                    getSupportFragmentManager().popBackStack();
-                    return true;
-                } else {
-                    NavUtils.navigateUpFromSameTask(this);
-                    return true;
-                }
-            default:
-                return super.onOptionsItemSelected(item);
+        if (item.getItemId() == android.R.id.home) {
+            if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+                getSupportFragmentManager().popBackStack();
+                return true;
+            } else {
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+            }
         }
+        return super.onOptionsItemSelected(item);
     }
 
     @Override
