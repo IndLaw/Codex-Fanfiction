@@ -52,23 +52,23 @@ public abstract class Paginate<T extends Serializable> extends AppCompatListFrag
 
     protected String category;
     protected boolean dualPane;
-    protected HashMap<String, ArrayList<SerPair<String, String>>> fields;
-    protected ArrayList<String> exclude;
-    protected ArrayList<String> order;
-    protected ArrayList<ViewBundle> bundles;
+    private HashMap<String, ArrayList<SerPair<String, String>>> fields;
+    private ArrayList<String> exclude;
+    private ArrayList<String> order;
+    private ArrayList<ViewBundle> bundles;
     protected HashMap<String, String> data;
-    protected String url;
-    protected int page;
+    private String url;
+    private int page;
     protected int total;
-    protected int size;
-    protected int next;
+    private int size;
+    private int next;
     protected ArrayList<T> list;
     private Download d;
     private ArrayList<T> tempList;
     private HashMap<String, String> tempData;
 
 
-    public ListView getPopupListView() {
+    protected ListView getPopupListView() {
         ListView v = new ListView(getActivity());
         String[] names = getResources().getStringArray(R.array.popup_browser);
         TypedArray draw;
@@ -89,11 +89,11 @@ public abstract class Paginate<T extends Serializable> extends AppCompatListFrag
         return v;
     }
 
-    public ViewListener getViewListener() {
+    protected ViewListener getViewListener() {
         return viewListener;
     }
 
-    public void setViewListener(ViewListener viewListener) {
+    private void setViewListener(ViewListener viewListener) {
         this.viewListener = viewListener;
     }
 
@@ -108,10 +108,10 @@ public abstract class Paginate<T extends Serializable> extends AppCompatListFrag
     }
 
     protected class StringWrapperUrl {
-        public StringBuilder value;
-        public HashMap<String, String> filter;
+        StringBuilder value;
+        HashMap<String, String> filter;
 
-        public StringWrapperUrl append(String s) {
+        StringWrapperUrl append(String s) {
             value = value.append(get(s)).append("/");
             return this;
         }
@@ -134,7 +134,7 @@ public abstract class Paginate<T extends Serializable> extends AppCompatListFrag
             this.filter = filter;
         }
 
-        public String get(String s) {
+        String get(String s) {
             return data.get(s) == null ? "0" : data.get(s);
         }
 
@@ -146,7 +146,7 @@ public abstract class Paginate<T extends Serializable> extends AppCompatListFrag
 
     protected class StringWrapperGet extends StringWrapperUrl {
 
-        public boolean first = true;
+        boolean first = true;
 
         public StringWrapperGet(String s, HashMap<String, String> filter) {
             super(s + "?", filter);
@@ -258,25 +258,25 @@ public abstract class Paginate<T extends Serializable> extends AppCompatListFrag
 
     protected abstract ArrayList<String> getExclude(Document doc);
 
-    public void putPage(HashMap<String, String> data, String s) {
+    protected void putPage(HashMap<String, String> data, String s) {
         data.put("p", s);
     }
 
-    public abstract T getPlaceHolderEntry();
+    protected abstract T getPlaceHolderEntry();
 
-    public abstract StreamAdapter<T> createAdapter(int size);
+    protected abstract StreamAdapter<T> createAdapter(int size);
 
-    public abstract ArrayList<T> getListItems(Document doc);
+    protected abstract ArrayList<T> getListItems(Document doc);
 
-    public abstract int getTotal(Document doc);
+    protected abstract int getTotal(Document doc);
 
-    public abstract ArrayList<String> order(Document doc);
+    protected abstract ArrayList<String> order(Document doc);
 
-    public abstract HashMap<String, ArrayList<SerPair<String, String>>> getFields(Document doc);
+    protected abstract HashMap<String, ArrayList<SerPair<String, String>>> getFields(Document doc);
 
     protected abstract String url(String url, int page);
 
-    public abstract String url_mobile(String url, int page);
+    protected abstract String url_mobile(String url, int page);
 
     protected abstract StreamAdapter<T> getAdapter();
 
@@ -420,14 +420,14 @@ public abstract class Paginate<T extends Serializable> extends AppCompatListFrag
     }
 
 
-    public void extra_data(HashMap<String, String> data) {
+    protected void extra_data(HashMap<String, String> data) {
     }
 
     protected void makeExtras(ArrayList<ViewBundle> bundles, LinearLayout layout) {
 
     }
 
-    public ViewBundle makeSpinner(String item) {
+    private ViewBundle makeSpinner(String item) {
         final ViewBundle bundle = new ViewBundle();
         bundle.name = item;
         ArrayList<SerPair<String, String>> map = new ArrayList<SerPair<String, String>>(fields.get(item));
@@ -509,7 +509,7 @@ public abstract class Paginate<T extends Serializable> extends AppCompatListFrag
         out.putInt("size", size);
     }
 
-    protected void web_action() {
+    private void web_action() {
         StreamAdapter adapter = (StreamAdapter) getListAdapter();
         int reader_page = adapter == null ? 1 : adapter.getPage();
         putPage(data, String.valueOf(reader_page));

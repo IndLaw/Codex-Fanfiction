@@ -143,7 +143,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ViewList
         openFragment(fragment, b, true);
     }
 
-    public void openFragment(Fragment fragment, Bundle b, boolean keepHistory) {
+    protected void openFragment(Fragment fragment, Bundle b, boolean keepHistory) {
         FrameLayout layout = (FrameLayout) findViewById(R.id.fragment_bigger);
         int id;
         if (layout != null) {
@@ -170,23 +170,23 @@ public abstract class BaseActivity extends AppCompatActivity implements ViewList
         //No tabs top create
     }
 
-    public ConnectionManager getConnectionManager() {
+    protected ConnectionManager getConnectionManager() {
         return getManager();
     }
 
-    public void setConnectionManager(ConnectionManager manager) {
+    private void setConnectionManager(ConnectionManager manager) {
         this.setManager(manager);
     }
 
-    public boolean isBound() {
+    private boolean isBound() {
         return bound;
     }
 
-    public ConnectionManager getManager() {
+    ConnectionManager getManager() {
         return manager;
     }
 
-    public void setManager(ConnectionManager manager) {
+    private void setManager(ConnectionManager manager) {
         this.manager = manager;
     }
 }

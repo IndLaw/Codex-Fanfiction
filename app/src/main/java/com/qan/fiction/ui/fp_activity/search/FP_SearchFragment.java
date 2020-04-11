@@ -26,7 +26,7 @@ public class FP_SearchFragment extends FP_Paginate {
 
     protected class StringWrapperCustom extends StringWrapperGet {
 
-        public StringWrapperCustom(String s, HashMap<String, String> filter) {
+        StringWrapperCustom(String s, HashMap<String, String> filter) {
             super(s, filter);
         }
 

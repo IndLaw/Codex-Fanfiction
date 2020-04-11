@@ -39,7 +39,7 @@ public abstract class OnlineReaderFragment extends ReaderFragment {
         return dualPane;
     }
 
-    public void setDualPane(boolean dualPane) {
+    private void setDualPane(boolean dualPane) {
         this.dualPane = dualPane;
     }
 
@@ -125,24 +125,24 @@ public abstract class OnlineReaderFragment extends ReaderFragment {
         getActivity().supportInvalidateOptionsMenu();
     }
 
-    public String getContent() {
+    private String getContent() {
         return dataManager.getContent();
     }
 
-    public String getUrl() {
+    private String getUrl() {
         System.out.println(dataManager.getUrl());
         return dataManager.getUrl();
     }
 
-    public int getSite() {
+    private int getSite() {
         return dataManager.getSite();
     }
 
-    public String getTitle() {
+    private String getTitle() {
         return dataManager.getTitle();
     }
 
-    public int getChapterCount() {
+    private int getChapterCount() {
         return dataManager.getChapterCount();
     }
 
@@ -231,9 +231,9 @@ public abstract class OnlineReaderFragment extends ReaderFragment {
         dataManager.setFirstPage(location);
     }
 
-    public abstract DataManager getManagerInstance();
+    protected abstract DataManager getManagerInstance();
 
-    public void web_action() {
+    private void web_action() {
         String url;
         url = dataManager.getWebUrl();
         Intent i = Web.web_intent(url);
@@ -241,19 +241,19 @@ public abstract class OnlineReaderFragment extends ReaderFragment {
     }
 
 
-    public Document getDocument() {
+    protected Document getDocument() {
         return dataManager.getDocument();
     }
 
-    public void setDocument(Document document) {
+    protected void setDocument(Document document) {
         dataManager.setDocument(document);
     }
 
-    public int getStoryId() {
+    private int getStoryId() {
         return dataManager.getStoryId();
     }
 
-    public void setStoryId(int storyId) {
+    private void setStoryId(int storyId) {
         dataManager.setStoryId(storyId);
     }
 

@@ -20,7 +20,7 @@ public class ListGroup {
         return name;
     }
 
-    public void setName(String name) {
+    private void setName(String name) {
         this.name = name;
     }
 
@@ -28,7 +28,7 @@ public class ListGroup {
         return numberUnread;
     }
 
-    public void setNumberUnread(int numberUnread) {
+    private void setNumberUnread(int numberUnread) {
         this.numberUnread = numberUnread;
     }
 
@@ -36,7 +36,7 @@ public class ListGroup {
         return filterType;
     }
 
-    public void setFilterType(int filterType) {
+    private void setFilterType(int filterType) {
         this.filterType = filterType;
     }
 
@@ -44,7 +44,7 @@ public class ListGroup {
         return children;
     }
 
-    public void setChildren(ArrayList<ListChild> children) {
+    private void setChildren(ArrayList<ListChild> children) {
         this.children = children;
     }
 }

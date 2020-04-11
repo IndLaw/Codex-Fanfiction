@@ -37,6 +37,9 @@ public class AO3_Extract {
     }
 
     public static Entry extract(Document doc, String site, int id) {
+        //using string builder for concatenation, then dumping info to new entry
+        StringBuilder stringDump = new StringBuilder();
+
         Element meta = doc.select(".work.meta.group").get(0);
         Entry e = new AO3_Entry();
         e.site = site;
@@ -59,19 +62,25 @@ public class AO3_Extract {
             e.description = elem.get(0).text();
 
         Elements b = meta.select("dd.fandom.tags a");
+
         e.category = "";
         for (int i = 0; i < b.size(); i++) {
             if (i != 0)
-                e.category += " + ";
-            e.category += b.get(i).text();
+                stringDump.append(" + ");
+            stringDump.append(b.get(i).text());
+            e.category = stringDump.toString();
         }
+        // reset buffer for reuse. Not elegant or clean, but whatever
+        stringDump.setLength(0);
+
         b = meta.select("dd.freeform.tags a");
         if (b.size() != 0)
             e.genre = "";
         for (int i = 0; i < b.size(); i++) {
             if (i != 0)
-                e.genre += "/";
-            e.genre += b.get(i).text();
+                stringDump.append("/");
+            stringDump.append(b.get(i).text());
+            e.genre = stringDump.toString();
         }
 
         String data = meta.select("dl.stats").text();
@@ -92,7 +101,7 @@ public class AO3_Extract {
         e.complete = !res.equals("?") && Integer.parseInt(res) == e.chapters;
     }
 
-    public static int extract_int(String prefix, String data, int defaultValue) {
+    private static int extract_int(String prefix, String data, int defaultValue) {
         if (data.contains(prefix)) {
             String res = text_extract(data, prefix, "([\\d,]*)[\\w\\W]*", "$1").replace(",", "");
             return Integer.parseInt(res);
@@ -100,7 +109,7 @@ public class AO3_Extract {
         return defaultValue;
     }
 
-    public static long extract_date(String prefix, String data, String format, long defaultValue) {
+    private static long extract_date(String prefix, String data, String format, long defaultValue) {
         if (data.contains(prefix)) {
             String res = text_extract(data, prefix, "([\\d-]*)[\\w\\W]*", "$1");
             SimpleDateFormat sdf = new SimpleDateFormat(format);
@@ -114,7 +123,7 @@ public class AO3_Extract {
         return defaultValue;
     }
 
-    public static String text_extract(String data, String tag, String regex, String replace) {
+    private static String text_extract(String data, String tag, String regex, String replace) {
         return data.substring(data.indexOf(tag) + tag.length())
                 .replaceFirst(regex, replace);
     }
@@ -171,6 +180,8 @@ public class AO3_Extract {
 
 
     public static ArrayList<Entry> getEntries(Document doc, String category, String site) {
+        //using string builder for concatenation, then dumping info to new entry
+        StringBuilder stringDump = new StringBuilder();
 
         ArrayList<Entry> list = new ArrayList<Entry>();
         Elements articles = doc.select("li.work");
@@ -203,16 +214,21 @@ public class AO3_Extract {
 
             e.category = category;
             for (int j = 0; j < a.size(); j++) {
-                e.category += " + ";
-                e.category += a.get(j).text();
+
+                stringDump.append(" + ");
+                stringDump.append(a.get(j).text());
+                e.category = stringDump.toString();
             }
 
+            // clear buffer
+            stringDump.setLength(0);
             if (d.size() > 0)
                 e.genre = "";
             for (int j = 0; j < d.size(); j++) {
                 if (j != 0)
-                    e.genre += "/";
-                e.genre += d.get(j).text();
+                    stringDump.append("/");
+                stringDump.append(d.get(j).text());
+                e.genre = stringDump.toString();
             }
 
             getTextInfo(e, data);

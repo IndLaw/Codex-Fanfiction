@@ -19,7 +19,7 @@ public class ListChild {
         return entry;
     }
 
-    public void setEntry(Entry entry) {
+    private void setEntry(Entry entry) {
         this.entry = entry;
     }
 
@@ -27,7 +27,7 @@ public class ListChild {
         return note;
     }
 
-    public void setNote(String note) {
+    private void setNote(String note) {
         this.note = note;
     }
 }

@@ -36,9 +36,9 @@ public abstract class Categories extends AppCompatListFragment implements Browsa
 
     private Download d;
     private ViewListener callback;
-    protected boolean dualPane;
+    private boolean dualPane;
     private SearchView view;
-    protected ArrayList<CategoryInfo> items;
+    private ArrayList<CategoryInfo> items;
 
     private class Download extends AsyncTask<String, Void, Integer> {
 
@@ -84,7 +84,7 @@ public abstract class Categories extends AppCompatListFragment implements Browsa
         }
     }
 
-    public abstract ArrayList<CategoryInfo> getItems(Document doc);
+    protected abstract ArrayList<CategoryInfo> getItems(Document doc);
 
     private void setAdapter() {
         if (getListAdapter() == null) {
@@ -115,7 +115,7 @@ public abstract class Categories extends AppCompatListFragment implements Browsa
         return a.name;
     }
 
-    public abstract ListFragment getNextFragment(int position);
+    protected abstract ListFragment getNextFragment(int position);
 
     @Override
     public void onCreate(Bundle saved) {
@@ -250,7 +250,7 @@ public abstract class Categories extends AppCompatListFragment implements Browsa
 
     public abstract String getMobileUrl();
 
-    public void sort_title() {
+    private void sort_title() {
         ((CategoriesAdapter) getListAdapter()).sort(new Comparator<CategoryInfo>() {
             @Override
             public int compare(CategoryInfo a, CategoryInfo b) {
@@ -260,7 +260,7 @@ public abstract class Categories extends AppCompatListFragment implements Browsa
         ((CategoriesAdapter) getListAdapter()).getFilter().filter(view.getQuery());
     }
 
-    public void sort_popular() {
+    private void sort_popular() {
         ((CategoriesAdapter) getListAdapter()).sort(new Comparator<CategoryInfo>() {
             @Override
             public int compare(CategoryInfo a, CategoryInfo b) {

@@ -9,7 +9,6 @@ import com.qan.fiction.util.storage.entries.Entry;
 
 import java.io.File;
 import java.io.FileOutputStream;
-import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.GregorianCalendar;
@@ -23,7 +22,7 @@ import nl.siegmann.epublib.epub.EpubWriter;
 
 public class BookExport {
 
-    public static boolean isExternalStorageWritable() {
+    private static boolean isExternalStorageWritable() {
         String state = Environment.getExternalStorageState();
         return Environment.MEDIA_MOUNTED.equals(state);
     }
@@ -56,7 +55,7 @@ public class BookExport {
         return context.getString(R.string.saved_ebook);
     }
 
-    public static String stripIllegalFileCharacters(String file) {
+    private static String stripIllegalFileCharacters(String file) {
         String s = file.replaceAll("[^a-zA-Z0-9.-]", "_");
         if (s.length() > 128)
             return s.substring(0, 128);

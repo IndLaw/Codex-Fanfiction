@@ -50,7 +50,7 @@ public class UILibrary extends AppCompatFragment {
     private LibraryFragment.LibraryFragmentListener callback;
     private ConnectionManager manager;
 
-    public void showDialog(final Entry e) {
+    void showDialog(final Entry e) {
         final AlertBuilder builder = new AlertBuilder(getActivity());
         TextView t = new TextView(getActivity());
         t.setTextSize(TypedValue.COMPLEX_UNIT_SP, 16);
@@ -176,7 +176,7 @@ public class UILibrary extends AppCompatFragment {
         makeUpdate(e, true);
     }
 
-    public void makeUpdate(Entry e, boolean showDialog) {
+    void makeUpdate(Entry e, boolean showDialog) {
         Message msg = Message.obtain(null, MSG_STOP);
         Bundle bundle = new Bundle();
         bundle.putString("file", e.file);
@@ -196,10 +196,10 @@ public class UILibrary extends AppCompatFragment {
         getActivity().startService(intent);
     }
 
-    public void update() {
+    void update() {
     }
 
-    protected void messageDialog(String message, String title, int icon) {
+    private void messageDialog(String message, String title, int icon) {
         final AlertBuilder builder = new AlertBuilder(getActivity());
         builder.setTitle(title);
         builder.setIcon(icon);
@@ -237,7 +237,7 @@ public class UILibrary extends AppCompatFragment {
         return v;
     }
 
-    public void download() {
+    void download() {
         final AlertBuilder builder = new AlertBuilder(getActivity());
         View v = getActivity().getLayoutInflater().inflate(R.layout.edit_dialog_new, null);
         final String[] value = {Settings.site(0)};
@@ -293,27 +293,27 @@ public class UILibrary extends AppCompatFragment {
             return R.drawable.down_dark;
     }
 
-    public ProgressDialog getProgress() {
+    ProgressDialog getProgress() {
         return d;
     }
 
-    public void setD(ProgressDialog d) {
+    private void setD(ProgressDialog d) {
         this.d = d;
     }
 
-    public LibraryFragment.LibraryFragmentListener getCallback() {
+    private LibraryFragment.LibraryFragmentListener getCallback() {
         return callback;
     }
 
-    public void setCallback(LibraryFragment.LibraryFragmentListener callback) {
+    void setCallback(LibraryFragment.LibraryFragmentListener callback) {
         this.callback = callback;
     }
 
-    public ConnectionManager getManager() {
+    ConnectionManager getManager() {
         return manager;
     }
 
-    public void setManager(ConnectionManager manager) {
+    void setManager(ConnectionManager manager) {
         this.manager = manager;
     }
 }

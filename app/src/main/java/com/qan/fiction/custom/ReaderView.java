@@ -22,7 +22,7 @@ public class ReaderView extends android.support.v7.widget.AppCompatTextView {
         init(context, attrs);
     }
 
-    public void init(Context context, AttributeSet as) {
+    private void init(Context context, AttributeSet as) {
         Typeface tf = Typeface.createFromAsset(context.getAssets(), "fonts.ttf");
         setTypeface(tf);
         TypedArray ta = context.obtainStyledAttributes(as, R.styleable.ReaderView);

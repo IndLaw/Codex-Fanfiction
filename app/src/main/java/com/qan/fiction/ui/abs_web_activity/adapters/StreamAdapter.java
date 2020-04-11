@@ -12,13 +12,13 @@ import com.qan.fiction.util.misc.listeners.Loadable;
 import java.util.List;
 
 public abstract class StreamAdapter<T> extends ArrayAdapter<T> {
-    protected int page;
-    protected int total;
-    protected int size;
-    protected Loadable activity;
-    protected boolean finite;
+    private int page;
+    private int total;
+    private int size;
+    private Loadable activity;
+    private boolean finite;
 
-    public StreamAdapter(Context context, List<T> entries, int total, Loadable activity, int size) {
+    StreamAdapter(Context context, List<T> entries, int total, Loadable activity, int size) {
         super(context, android.R.layout.simple_list_item_1, entries);
         this.total = total;
         this.activity = activity;
@@ -71,6 +71,6 @@ public abstract class StreamAdapter<T> extends ArrayAdapter<T> {
 
     protected abstract void makeView(View v, T e);
 
-    public abstract boolean isPlaceholder(T entry);
+    protected abstract boolean isPlaceholder(T entry);
 
 }

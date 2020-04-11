@@ -18,9 +18,9 @@ public class Settings {
     public static final int ALL = 3;
     public static final int OFFLINE = 3;
 
-    public static final int TEXT_SMALL = 0;
-    public static final int TEXT_MED = 1;
-    public static final int TEXT_LARGE = 2;
+    private static final int TEXT_SMALL = 0;
+    private static final int TEXT_MED = 1;
+    private static final int TEXT_LARGE = 2;
     public static final int TEXT_XL = 3;
 
 

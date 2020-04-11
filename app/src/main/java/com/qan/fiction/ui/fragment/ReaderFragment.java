@@ -54,36 +54,36 @@ public class ReaderFragment extends AppCompatFragment {
     private int chapters;
     private int page;
     private GestureDetector detector;
-    protected boolean scrollToPosition;
+    boolean scrollToPosition;
     private boolean ignore;
 
-    public int getChapters() {
+    int getChapters() {
         return chapters;
     }
 
-    public void setChapters(int chapters) {
+    void setChapters(int chapters) {
         this.chapters = chapters;
     }
 
-    public String getLocation() {
+    protected String getLocation() {
         return location;
     }
 
-    public void setLocation(String location) {
+    void setLocation(String location) {
         this.location = location;
     }
 
-    public int getPage() {
+    int getPage() {
         return page;
     }
 
-    public void setPage(int page) {
+    void setPage(int page) {
         this.page = page;
     }
 
     public interface ReaderFragmentListener {
 
-        public void onReview(Entry e);
+        void onReview(Entry e);
     }
 
     private ArrayList<Page> tasks = new ArrayList<Page>();
@@ -200,7 +200,7 @@ public class ReaderFragment extends AppCompatFragment {
             tasks.remove(this);//All tasks are unique, so equals() doesn't need to be implemented
         }
 
-        protected void makeError() {
+        void makeError() {
             AlertBuilder builder = new AlertBuilder(getActivity());
             builder.setTitle(R.string.alert);
             builder.setMessage(R.string.failed_load_page);
@@ -286,7 +286,7 @@ public class ReaderFragment extends AppCompatFragment {
         setHasOptionsMenu(true);
     }
 
-    public void initialize(Bundle saved, Bundle b) {
+    void initialize(Bundle saved, Bundle b) {
         if (getSupportActivity().getSupportActionBar() != null) {
             getSupportActivity().getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
@@ -320,7 +320,7 @@ public class ReaderFragment extends AppCompatFragment {
         getActivity().getWindow().clearFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON);
     }
 
-    public boolean run(Bundle b, Bundle saved) {
+    boolean run(Bundle b, Bundle saved) {
         setLocation(b.getString("file"));
         setPage(Settings.getPage(getActivity(), getLocation()));
         DatabaseHandler db = ((Global) getActivity().getApplication()).getDatabase();
@@ -375,7 +375,7 @@ public class ReaderFragment extends AppCompatFragment {
         getActivity().invalidateOptionsMenu();
     }
 
-    protected void set_listeners() {
+    private void set_listeners() {
         detector = new GestureDetector(getActivity(), new CustomDetector());
         View.OnTouchListener touch = new View.OnTouchListener() {
             public boolean onTouch(View v, MotionEvent event) {
@@ -391,7 +391,7 @@ public class ReaderFragment extends AppCompatFragment {
     }
 
 
-    protected void setContent() {
+    void setContent() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1)
             getDownloadInstance().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         else
@@ -399,7 +399,7 @@ public class ReaderFragment extends AppCompatFragment {
         set_listeners();
     }
 
-    protected boolean reset(Bundle savedInstanceState) {
+    boolean reset(Bundle savedInstanceState) {
         if (!savedInstanceState.containsKey("text"))
             return true;
         textView.setText(savedInstanceState.getCharSequence("text"));
@@ -448,7 +448,7 @@ public class ReaderFragment extends AppCompatFragment {
         inflateMenu(menu, m, R.menu.reader);
     }
 
-    protected void inflateMenu(Menu menu, MenuInflater m, int menuId) {
+    void inflateMenu(Menu menu, MenuInflater m, int menuId) {
         if (!ignore) {
             m.inflate(menuId, menu);
             spinner = (Spinner) menu.findItem(R.id.chapter).getActionView();
@@ -477,12 +477,12 @@ public class ReaderFragment extends AppCompatFragment {
         }
     }
 
-    public Page getDownloadInstance() {
+    Page getDownloadInstance() {
         return new Page();
     }
 
 
-    public ArrayList<String> getStrings() {
+    ArrayList<String> getStrings() {
         ArrayList<String> s = new ArrayList<String>();
         for (int i = 1; i <= getChapters(); i++) {
             s.add("Chapter " + i);

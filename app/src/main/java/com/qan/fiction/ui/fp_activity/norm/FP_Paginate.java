@@ -223,7 +223,7 @@ public class FP_Paginate extends Paginate<Entry> {
     }
 
 
-    public String getId(String site, String file) {
+    private String getId(String site, String file) {
         return Entry.getId(file, site);
     }
 

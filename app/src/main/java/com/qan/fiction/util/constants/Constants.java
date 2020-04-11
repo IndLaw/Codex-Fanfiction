@@ -4,10 +4,14 @@ import java.util.HashMap;
 
 public class Constants {
     public static final HashMap<String, String> elementID;
-    public static final HashMap<String, String> siteInfo, mobileReader;
+    public static final HashMap<String, String> siteInfo;
+    private static final HashMap<String, String> mobileReader;
     public static final HashMap<String, String> siteName;
     public static final HashMap<String, String> download;
-    public static final HashMap<String, String> normalSite, mobileSite, normalView, mobileView;
+    private static final HashMap<String, String> normalSite;
+    private static final HashMap<String, String> mobileSite;
+    public static final HashMap<String, String> normalView;
+    public static final HashMap<String, String> mobileView;
 
 
     public static final int SWIPE_THRESHOLD_VELOCITY = 200;

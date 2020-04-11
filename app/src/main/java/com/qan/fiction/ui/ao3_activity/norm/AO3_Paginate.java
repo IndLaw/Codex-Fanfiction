@@ -88,7 +88,7 @@ public class AO3_Paginate extends Paginate<Entry> {
         return AO3_Extract.getFields(doc);
     }
 
-    public String url(String url, int page) {
+    protected String url(String url, int page) {
         StringWrapperGet wrapper = new StringWrapperGet(url, null);
         if (data.containsKey("work_search[sort_column]"))
             wrapper.append("work_search[sort_column]");
@@ -204,7 +204,7 @@ public class AO3_Paginate extends Paginate<Entry> {
         dialog.show();
     }
 
-    public String getId(String site, String file) {
+    private String getId(String site, String file) {
         return Entry.getId(file, site);
     }
 

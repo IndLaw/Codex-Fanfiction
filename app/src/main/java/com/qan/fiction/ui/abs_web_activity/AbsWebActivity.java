@@ -106,7 +106,7 @@ public abstract class AbsWebActivity extends CoreActivity implements ViewListene
         openTab(fragment, ft, new Bundle());
     }
 
-    public void openTab(Fragment fragment, FragmentTransaction ft, Bundle b) {
+    protected void openTab(Fragment fragment, FragmentTransaction ft, Bundle b) {
         android.app.FragmentManager fm = getFragmentManager();
         fm.popBackStack(null, FragmentManager.POP_BACK_STACK_INCLUSIVE);
         if (findViewById(R.id.fragment_container) != null) {
@@ -127,7 +127,7 @@ public abstract class AbsWebActivity extends CoreActivity implements ViewListene
     }
 
 
-    public void cancelDialog(final Bundle arg) {
+    private void cancelDialog(final Bundle arg) {
         final AlertBuilder builder = new AlertBuilder(this);
         builder.setTitle(R.string.download);
         if (Settings.isLightTheme(this))

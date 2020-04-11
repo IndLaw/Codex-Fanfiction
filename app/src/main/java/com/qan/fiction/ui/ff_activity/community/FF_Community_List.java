@@ -53,7 +53,7 @@ public class FF_Community_List extends Paginate<CommunityInfo> {
         return FF_Extract.getFields(doc);
     }
 
-    public String url(String url, int page) {
+    protected String url(String url, int page) {
         if (data.size() == 1)
             return url + "0/3/" + page;
         url = new StringWrapperUrl(url, null)

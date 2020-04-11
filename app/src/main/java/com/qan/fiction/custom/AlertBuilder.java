@@ -39,7 +39,7 @@ public class AlertBuilder {
      * @param show      If {@code show} is true, displays the {@link AlertDialog} generate by {@link #create()} on the screen.
      *                  If false, does nothing.
      */
-    public AlertBuilder(Context c, int titleId, int messageId, boolean show) {
+    private AlertBuilder(Context c, int titleId, int messageId, boolean show) {
         this(c);
         setTitle(titleId);
         setMessage(messageId);

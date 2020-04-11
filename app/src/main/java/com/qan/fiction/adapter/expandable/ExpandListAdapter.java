@@ -18,7 +18,7 @@ import java.util.List;
 public class ExpandListAdapter extends BaseExpandableListAdapter {
 
     private Context context;
-    public ArrayList<ListGroup> groups;
+    private ArrayList<ListGroup> groups;
 
     public ExpandListAdapter(Context context, ArrayList<ListGroup> groups) {
         this.context = context;
@@ -35,7 +35,7 @@ public class ExpandListAdapter extends BaseExpandableListAdapter {
     }
 
 
-    public long hash(String string) {
+    private long hash(String string) {
         long h = 1125899906842597L;
         int len = string.length();
 

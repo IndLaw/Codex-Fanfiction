@@ -173,11 +173,11 @@ public abstract class SearchFragmentContainer extends AppCompatListFragment {
         return adapter;
     }
 
-    public abstract void onSubmit(String query);
+    protected abstract void onSubmit(String query);
 
-    public abstract String getUrl(CharSequence query, String type, boolean dual);
+    protected abstract String getUrl(CharSequence query, String type, boolean dual);
 
-    public void addTerm(String term) {
+    protected void addTerm(String term) {
         term = term.toLowerCase();
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1)
             new Term().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, term);
@@ -220,11 +220,11 @@ public abstract class SearchFragmentContainer extends AppCompatListFragment {
     }
 
 
-    public void setList(ArrayList<SerPair<String, Integer>> list) {
+    private void setList(ArrayList<SerPair<String, Integer>> list) {
         this.list = list;
     }
 
-    public ArrayList<SerPair<String, Integer>> getList() {
+    protected ArrayList<SerPair<String, Integer>> getList() {
         return list;
     }
 }

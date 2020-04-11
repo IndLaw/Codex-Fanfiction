@@ -18,7 +18,7 @@ public abstract class DataManager {
         this.page = page;
     }
 
-    public DataManager() {
+    DataManager() {
 
     }
 
@@ -71,7 +71,7 @@ public abstract class DataManager {
     /**
      * @return The page to be viewed.
      */
-    public int getPage() {
+    int getPage() {
         return page;
     }
 
@@ -97,7 +97,7 @@ public abstract class DataManager {
     }
 
 
-    public String getFirstPage() {
+    String getFirstPage() {
         return firstPage;
     }
 

@@ -45,9 +45,9 @@ public class LibraryFragment extends UILibrary {
 
 
     public interface LibraryFragmentListener {
-        public void onLibraryRead(Entry read);
+        void onLibraryRead(Entry read);
 
-        public void onOnlineRead(String site, String id);
+        void onOnlineRead(String site, String id);
     }
 
     @Override
@@ -312,7 +312,7 @@ public class LibraryFragment extends UILibrary {
             Settings.setStatusFiltering(getActivity(), position);
     }
 
-    public void updateAll() {
+    private void updateAll() {
         if (updateList == null || updateList.size() == 0) {
             updateList = adapter.getEntries();
             total = updateList.size();

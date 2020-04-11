@@ -39,7 +39,7 @@ import java.util.zip.ZipFile;
 
 public class MainFragment extends AppCompatListFragment {
 
-    ViewListener callback;
+    private ViewListener callback;
 
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

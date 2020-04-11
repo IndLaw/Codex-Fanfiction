@@ -19,8 +19,8 @@ public class ConnectionManager {
         service.send(msg);
     }
 
-    public static interface OnMessageReceivedListener {
-        public void onReceive(Message msg);
+    public interface OnMessageReceivedListener {
+        void onReceive(Message msg);
     }
 
 

@@ -16,9 +16,9 @@ import java.util.Map;
 
 public class Connector {
 
-    public static final String USER_AGENT = "Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1667.0 Safari/537.36";
+    private static final String USER_AGENT = "Mozilla/5.0 (Windows NT 6.2; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/32.0.1667.0 Safari/537.36";
 
-    public static final int DEFAULT_REPEAT = 3;
+    private static final int DEFAULT_REPEAT = 3;
 
     /**
      * Attempts to connect to the given URL with a GET request.
@@ -37,7 +37,7 @@ public class Connector {
      * @param repeat The number of times to check the url, in case of web problems
      * @return A {@link Document} if the page loads successfully, or null otherwise
      */
-    public static Document getUrl(String url, int repeat) throws Exception {
+    private static Document getUrl(String url, int repeat) throws Exception {
 
         return getUrl(url, repeat, Connection.Method.GET);
 
@@ -83,7 +83,7 @@ public class Connector {
      * @param method The GET or POST HTTP method to use.
      * @return A {@link Document} if the page loads successfully, or throws {@link Exception} otherwise
      */
-    public static Document getUrl(String url, int repeat, Connection.Method method) throws Exception {
+    private static Document getUrl(String url, int repeat, Connection.Method method) throws Exception {
 
         while (repeat > 0) {
             try {

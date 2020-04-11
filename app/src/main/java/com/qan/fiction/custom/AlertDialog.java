@@ -9,7 +9,7 @@ import android.view.View;
 import static com.qan.fiction.util.constants.Conversion.dp;
 
 public class AlertDialog {
-    public android.app.AlertDialog a;
+    private android.app.AlertDialog a;
 
     public AlertDialog(Object o) {
         if (o instanceof android.app.AlertDialog)

@@ -21,7 +21,7 @@ public abstract class TransferStrategy implements DownloadListener {
     private final TransferManager manager;
     private List<ProgressListener> listeners;
 
-    public TransferStrategy(Context context, DatabaseHandler db, TransferManager manager) {
+    TransferStrategy(Context context, DatabaseHandler db, TransferManager manager) {
         this.context = context;
         this.db = db;
         this.manager = manager;
@@ -166,31 +166,31 @@ public abstract class TransferStrategy implements DownloadListener {
             listener.onComplete(message);
     }
 
-    public Context getContext() {
+    Context getContext() {
         return context;
     }
 
-    public DatabaseHandler getDatabase() {
+    DatabaseHandler getDatabase() {
         return db;
     }
 
-    public TransferManager getManager() {
+    TransferManager getManager() {
         return manager;
     }
 
-    public abstract boolean isDuplicate();
+    protected abstract boolean isDuplicate();
 
-    public abstract String getStopMessage();
+    protected abstract String getStopMessage();
 
-    public abstract String getFailureMessage();
+    protected abstract String getFailureMessage();
 
-    public abstract String getCompletionMessage();
+    protected abstract String getCompletionMessage();
 
     public abstract String getCompletionMessage(Entry e);
 
-    public abstract boolean isNewDownload();
+    protected abstract boolean isNewDownload();
 
-    public abstract int getChapterStart();
+    protected abstract int getChapterStart();
 
 
 }

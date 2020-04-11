@@ -42,8 +42,8 @@ public class FF_Extract {
                 "Supernatural", "Suspense", "Tragedy", "Western");
     }
 
-    public static final String FORMAT_1 = "MM/dd/yy";
-    public static final String FORMAT_2 = "MM/dd";
+    private static final String FORMAT_1 = "MM/dd/yy";
+    private static final String FORMAT_2 = "MM/dd";
 
     public static Entry extract(Document doc, String site, int id) {
         Element base = doc.getElementById("content_wrapper_inner");
@@ -92,7 +92,7 @@ public class FF_Extract {
         e.complete = data.contains("Complete");
     }
 
-    public static int extract_int(String prefix, String data, int defaultValue) {
+    private static int extract_int(String prefix, String data, int defaultValue) {
         if (data.contains(prefix)) {
             String res = text_extract(data, prefix, "([\\d,]*)[\\w\\W]*", "$1").replace(",", "");
             return Integer.parseInt(res);
@@ -100,7 +100,7 @@ public class FF_Extract {
         return defaultValue;
     }
 
-    public static long extract_date(String prefix, String data, long defaultValue) {
+    private static long extract_date(String prefix, String data, long defaultValue) {
 
         if (data.contains(prefix)) {
             String res = text_extract(data, prefix, "(.*?) -.*", "$1");
@@ -128,7 +128,7 @@ public class FF_Extract {
         return defaultValue;
     }
 
-    public static long extract_date(String prefix, String data, String format, long defaultValue) {
+    private static long extract_date(String prefix, String data, String format, long defaultValue) {
         if (data.contains(prefix)) {
             String res = text_extract(data, prefix, "([\\d-]*)[\\w\\W]*", "$1");
             SimpleDateFormat sdf = new SimpleDateFormat(format);
@@ -151,7 +151,7 @@ public class FF_Extract {
         return null;
     }
 
-    public static String text_extract(String data, String tag, String regex, String replace) {
+    private static String text_extract(String data, String tag, String regex, String replace) {
         return data.substring(data.indexOf(tag) + tag.length())
                 .replaceFirst(regex, replace);
     }

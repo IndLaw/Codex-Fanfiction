@@ -21,39 +21,39 @@ public class DatabaseHandler extends SQLiteOpenHelper {
 
     // All Static variables
     // Database Version
-    public static final int DATABASE_VERSION = 3;
+    private static final int DATABASE_VERSION = 3;
 
     // Database Name
-    public static final String DATABASE_NAME = "fiction_reader";
+    private static final String DATABASE_NAME = "fiction_reader";
 
     // Table names
-    public static final String TABLE_STORY = "story";
-    public static final String TABLE_WEB = "web";
-    public static final String TABLE_SEARCH = "search";
+    private static final String TABLE_STORY = "story";
+    private static final String TABLE_WEB = "web";
+    private static final String TABLE_SEARCH = "search";
 
     // Contacts Table Columns names
-    public static final String KEY_FILE = "file";
-    public static final String KEY_SITE = "site";
-    public static final String KEY_AUTHOR_ID = "author_id";
-    public static final String KEY_AUTHOR = "author";
-    public static final String KEY_TITLE = "title";
-    public static final String KEY_DESCRIPTION = "description";
-    public static final String KEY_CATEGORY = "category";
-    public static final String KEY_WORDS = "words";
-    public static final String KEY_PUBLISH = "publish_date";
-    public static final String KEY_UPDATE = "update_date";
-    public static final String KEY_REVIEWS = "reviews";
-    public static final String KEY_FAVS = "favorites";
-    public static final String KEY_FOLLOWS = "follows";
-    public static final String KEY_COMPLETE = "complete";
-    public static final String KEY_CHAPTERS = "chapters";
-    public static final String KEY_CREATE = "last_time";
-    public static final String KEY_GENRE = "genre";
+    private static final String KEY_FILE = "file";
+    private static final String KEY_SITE = "site";
+    private static final String KEY_AUTHOR_ID = "author_id";
+    private static final String KEY_AUTHOR = "author";
+    private static final String KEY_TITLE = "title";
+    private static final String KEY_DESCRIPTION = "description";
+    private static final String KEY_CATEGORY = "category";
+    private static final String KEY_WORDS = "words";
+    private static final String KEY_PUBLISH = "publish_date";
+    private static final String KEY_UPDATE = "update_date";
+    private static final String KEY_REVIEWS = "reviews";
+    private static final String KEY_FAVS = "favorites";
+    private static final String KEY_FOLLOWS = "follows";
+    private static final String KEY_COMPLETE = "complete";
+    private static final String KEY_CHAPTERS = "chapters";
+    private static final String KEY_CREATE = "last_time";
+    private static final String KEY_GENRE = "genre";
 
     public static final String KEY_STRING = "string";
-    public static final String KEY_VALUE = "value";
+    private static final String KEY_VALUE = "value";
 
-    public static final String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_STORY + "("
+    private static final String CREATE_CONTACTS_TABLE = "CREATE TABLE " + TABLE_STORY + "("
             + KEY_FILE + " TEXT PRIMARY KEY," + KEY_SITE + " TEXT,"
             + KEY_AUTHOR + " TEXT," + KEY_AUTHOR_ID + " INT,"
             + KEY_TITLE + " TEXT," + KEY_DESCRIPTION + " TEXT,"
@@ -64,10 +64,10 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             + KEY_CHAPTERS + " INT," + KEY_COMPLETE + " INT,"
             + KEY_CREATE + " INT," + KEY_GENRE + " TEXT" + ")";
 
-    public static final String CREATE_WEB_TABLE = "CREATE TABLE " + TABLE_WEB + "("
+    private static final String CREATE_WEB_TABLE = "CREATE TABLE " + TABLE_WEB + "("
             + KEY_STRING + " TEXT PRIMARY KEY," + KEY_VALUE + " INT" + ")";
 
-    public static final String CREATE_SEARCH_TABLE = "CREATE TABLE " + TABLE_SEARCH + "("
+    private static final String CREATE_SEARCH_TABLE = "CREATE TABLE " + TABLE_SEARCH + "("
             + KEY_STRING + " TEXT PRIMARY KEY," + KEY_VALUE + " INT" + ")";
     private final Context context;
 

@@ -15,25 +15,25 @@ import java.util.*;
 public class StoryUtils {
 
 
-    public static final int FILTER_ALL = 0;
-    public static final int FILTER_CATEGORY = 1;
+    private static final int FILTER_ALL = 0;
+    private static final int FILTER_CATEGORY = 1;
     public static final int FILTER_AUTHOR = 2;
-    public static final int FILTER_STARRED = 3;
-    public static final int FILTER_UNREAD = 4;
+    private static final int FILTER_STARRED = 3;
+    private static final int FILTER_UNREAD = 4;
 
-    public static final int COMPLETE = 1;
-    public static final int IN_PROGRESS = 2;
+    private static final int COMPLETE = 1;
+    private static final int IN_PROGRESS = 2;
 
-    public static final int SORT_DOWNLOAD = 0;
-    public static final int SORT_UPDATE = 1;
-    public static final int SORT_PUBLISH = 2;
-    public static final int SORT_REVIEWS = 3;
-    public static final int SORT_FAVS = 4;
-    public static final int SORT_FOLLOWS = 5;
+    private static final int SORT_DOWNLOAD = 0;
+    private static final int SORT_UPDATE = 1;
+    private static final int SORT_PUBLISH = 2;
+    private static final int SORT_REVIEWS = 3;
+    private static final int SORT_FAVS = 4;
+    private static final int SORT_FOLLOWS = 5;
     private static final int SORT_WORDS = 6;
 
 
-    public static final SparseArray<Comparator<Entry>> compare;
+    private static final SparseArray<Comparator<Entry>> compare;
 
     static {
         compare = new SparseArray<Comparator<Entry>>();
@@ -188,7 +188,7 @@ public class StoryUtils {
         return list;
     }
 
-    public static String message(int sort, Entry value) {
+    private static String message(int sort, Entry value) {
         if (sort == SORT_DOWNLOAD) {
             Calendar c = new GregorianCalendar();
             c.setTimeZone(TimeZone.getDefault());

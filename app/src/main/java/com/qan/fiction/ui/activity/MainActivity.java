@@ -98,7 +98,7 @@ public class MainActivity extends BaseActivity
         }
     }
 
-    public void cancelDialog(final Bundle arg) {
+    private void cancelDialog(final Bundle arg) {
         final AlertBuilder builder = new AlertBuilder(this);
         builder.setTitle(R.string.download);
         if (Settings.isLightTheme(this))
@@ -172,7 +172,7 @@ public class MainActivity extends BaseActivity
 
     }
 
-    public static String modify(Context c, String url, String site, String file) {
+    private static String modify(Context c, String url, String site, String file) {
         int page = Settings.getPage(c, file);
         if (site.equals(Constants.FF_NET_S) || site.equals(Constants.FP_COM_S))
             return url.substring(0, url.length() - 2) + page;

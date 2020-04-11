@@ -20,9 +20,9 @@ import com.qan.fiction.util.misc.listeners.ViewListener;
 import com.qan.fiction.util.web.Web;
 
 public abstract class Browser extends AppCompatListFragment implements Browsable {
-    protected ViewListener callback;
+    private ViewListener callback;
     protected String[] append;
-    protected String[] names;
+    private String[] names;
 
     public void onCreate(Bundle saved) {
         super.onCreate(saved);
@@ -34,9 +34,9 @@ public abstract class Browser extends AppCompatListFragment implements Browsable
 
     }
 
-    public abstract int appendResource();
+    protected abstract int appendResource();
 
-    public abstract int categoryResource();
+    protected abstract int categoryResource();
 
     @Override
     public void onAttach(Activity activity) {
@@ -64,7 +64,7 @@ public abstract class Browser extends AppCompatListFragment implements Browsable
      * @param position The position of the click in the list
      * @return The corresponding {@link ListFragment} to open
      */
-    public abstract ListFragment getNextFragment(int position);
+    protected abstract ListFragment getNextFragment(int position);
 
     /**
      * Returns an absolute URL for the location of the link click
@@ -72,7 +72,7 @@ public abstract class Browser extends AppCompatListFragment implements Browsable
      * @param position The position of the clicked item
      * @return The absolute URL
      */
-    public abstract String getAddress(int position);
+    protected abstract String getAddress(int position);
 
 
     @Override
@@ -96,7 +96,7 @@ public abstract class Browser extends AppCompatListFragment implements Browsable
         super.onStart();
     }
 
-    public abstract String getTitle();
+    protected abstract String getTitle();
 
     @Override
     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {

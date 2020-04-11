@@ -14,16 +14,16 @@ public abstract class Entry implements Serializable {
     public long publish, update, time, authorId;
     public boolean complete;
 
-    public static final String[] exceptions;
+    static final String[] exceptions;
 
     static {
         exceptions = new String[]{"Rosario + Vampire"};
     }
 
 
-    public Entry(String file, String site, String author, String title, String description, String category, String genre,
-                 int words, long publish, long update, long authorId, long time,
-                 int reviews, int favorites, int follows, int chapters, boolean complete) {
+    Entry(String file, String site, String author, String title, String description, String category, String genre,
+          int words, long publish, long update, long authorId, long time,
+          int reviews, int favorites, int follows, int chapters, boolean complete) {
         this.file = file;
         this.site = site;
         this.author = author.trim();
@@ -43,7 +43,7 @@ public abstract class Entry implements Serializable {
         this.time = time;
     }
 
-    protected Entry() {
+    Entry() {
     }
 
     public String info() {
@@ -109,7 +109,7 @@ public abstract class Entry implements Serializable {
 
     public abstract String reviewName();
 
-    public abstract String genreName();
+    protected abstract String genreName();
 
     public String getId() {
         return Entry.getId(file, site);
@@ -140,9 +140,9 @@ public abstract class Entry implements Serializable {
     }
 
 
-    public abstract String getCategoryString();
+    protected abstract String getCategoryString();
 
-    public Object getGenreString() {
+    private Object getGenreString() {
         return genre.replace("/", ", ");
     }
 

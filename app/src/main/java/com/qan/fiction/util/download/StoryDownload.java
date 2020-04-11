@@ -41,14 +41,14 @@ public class StoryDownload extends Service {
     public static final int MSG_UNREGISTER_CLIENT = 2;
     public static final int MSG_RESULT = 3;
     public static final int MSG_STOP = 4;
-    public static final int MSG_TOAST = 5;
+    private static final int MSG_TOAST = 5;
     /**
      * This is here to stop simultaneous downloads of the same same files
      */
     private HashSet<String> stoppedDownloads = new HashSet<String>();
     private Set<Messenger> clients = new CopyOnWriteArraySet<Messenger>();
 
-    final Messenger mMessenger = new Messenger(new IncomingHandler()); // Target we publish for clients to send messages to IncomingHandler.
+    private final Messenger mMessenger = new Messenger(new IncomingHandler()); // Target we publish for clients to send messages to IncomingHandler.
     private DatabaseHandler db;
 
 
@@ -183,7 +183,7 @@ public class StoryDownload extends Service {
     /**
      * Downloads the given story ID from the given site.
      */
-    public void download(String site, int id, boolean isNewDownload) {
+    private void download(String site, int id, boolean isNewDownload) {
 
         //check web page status before attempting to retrieve data
         System.out.println(site + "--------------------------------------------------------------------------------");
