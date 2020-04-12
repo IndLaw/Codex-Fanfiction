@@ -1,8 +1,8 @@
 package com.qan.fiction.ui.ao3_activity;
 
 import android.os.Bundle;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.ActionBar;
+import androidx.fragment.app.FragmentTransaction;
+import androidx.appcompat.app.ActionBar;
 
 import com.qan.fiction.R;
 import com.qan.fiction.ui.abs_web_activity.AbsWebActivity;

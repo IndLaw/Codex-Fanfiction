@@ -10,7 +10,7 @@ import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.os.Message;
 import android.os.RemoteException;
-import android.support.v4.app.ActivityCompat;
+import androidx.core.app.ActivityCompat;
 import android.text.Html;
 import android.util.DisplayMetrics;
 import android.util.TypedValue;
@@ -38,7 +38,7 @@ import com.qan.fiction.util.storage.entries.Entry;
 
 import static android.Manifest.permission.READ_EXTERNAL_STORAGE;
 import static android.Manifest.permission.WRITE_EXTERNAL_STORAGE;
-import static android.support.v4.content.ContextCompat.checkSelfPermission;
+import static androidx.core.content.ContextCompat.checkSelfPermission;
 import static com.qan.fiction.util.constants.Conversion.dp;
 import static com.qan.fiction.util.constants.Conversion.sp;
 import static com.qan.fiction.util.download.StoryDownload.MSG_STOP;

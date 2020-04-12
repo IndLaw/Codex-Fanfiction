@@ -9,7 +9,7 @@ import android.util.TypedValue;
 import com.qan.fiction.R;
 import com.qan.fiction.util.constants.Settings;
 
-public class ReaderView extends android.support.v7.widget.AppCompatTextView {
+public class ReaderView extends androidx.appcompat.widget.AppCompatTextView {
 
 
     public ReaderView(Context context, AttributeSet attrs) {

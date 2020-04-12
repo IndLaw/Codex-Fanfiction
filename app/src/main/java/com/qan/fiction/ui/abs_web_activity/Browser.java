@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.ListFragment;
-import android.support.v7.app.ActionBar;
+import androidx.fragment.app.ListFragment;
+import androidx.appcompat.app.ActionBar;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -79,7 +79,7 @@ public abstract class Browser extends AppCompatListFragment implements Browsable
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        android.support.v7.app.ActionBar bar = getSupportActivity().getSupportActionBar();
+        androidx.appcompat.app.ActionBar bar = getSupportActivity().getSupportActionBar();
         if (bar.getNavigationMode() != ActionBar.NAVIGATION_MODE_TABS) {
             if (bar.getTabCount() == 0)
                 callback.setContent();

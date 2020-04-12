@@ -1,6 +1,6 @@
 package com.qan.fiction.ui.fp_activity.community;
 
-import android.support.v4.app.ListFragment;
+import androidx.fragment.app.ListFragment;
 
 import com.qan.fiction.ui.abs_web_activity.Categories;
 import com.qan.fiction.ui.abs_web_activity.info.CategoryInfo;
