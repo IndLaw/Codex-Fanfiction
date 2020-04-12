@@ -20,6 +20,8 @@ import com.qan.fiction.ui.fragment.ReaderFragment;
 import com.qan.fiction.util.constants.Settings;
 import com.qan.fiction.util.misc.listeners.ViewListener;
 
+import java.util.Objects;
+
 import static com.qan.fiction.ui.fragment.ReaderFragment.ReaderFragmentListener;
 import static com.qan.fiction.util.download.StoryDownload.MSG_STOP;
 
@@ -33,7 +35,7 @@ public abstract class AbsWebActivity extends CoreActivity implements ViewListene
         super.onCreate(saved);
         registerReceiver();
 
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        Objects.requireNonNull(getSupportActionBar()).setDisplayHomeAsUpEnabled(true);
         if (saved == null) {
             setContent();
             onNewIntent(getIntent());
