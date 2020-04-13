@@ -232,6 +232,7 @@ public class UILibrary extends AppCompatFragment {
             d[i] = draw.getDrawable(i);
             d[i].setBounds(0, 0, pix, pix);
         }
+        draw.recycle();
         v.setAdapter(new MainAdapter(getActivity(), names, d));
         return v;
     }

@@ -8,7 +8,6 @@ import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.net.Uri;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
@@ -86,6 +85,7 @@ public abstract class Paginate<T extends Serializable> extends AppCompatListFrag
             d[i] = draw.getDrawable(i);
             d[i].setBounds(0, 0, pix, pix);
         }
+        draw.recycle();
         v.setAdapter(new MainAdapter(getActivity(), names, d));
         return v;
     }
@@ -526,10 +526,7 @@ public abstract class Paginate<T extends Serializable> extends AppCompatListFrag
     public void loadNextPage() {
         if (next == page) {
             next = page + 1;
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1)
-                new Download().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, url);
-            else
-                new Download().execute(url);
+            new Download().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, url);
         }
     }
 

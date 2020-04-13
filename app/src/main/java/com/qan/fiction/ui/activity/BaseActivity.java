@@ -61,11 +61,7 @@ public abstract class BaseActivity extends AppCompatActivity implements ViewList
         themeReceiver = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) {
-                    recreate();
-                } else {
-                    finish();
-                }
+                recreate();
             }
         };
         IntentFilter filter = new IntentFilter();

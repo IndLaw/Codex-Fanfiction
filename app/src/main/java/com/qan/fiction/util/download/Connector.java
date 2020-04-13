@@ -3,7 +3,6 @@ package com.qan.fiction.util.download;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.os.Build;
 
 import org.jsoup.Connection;
 import org.jsoup.Jsoup;
@@ -88,15 +87,11 @@ public class Connector {
         while (repeat > 0) {
             try {
                 repeat--;
-                Document d = Jsoup.connect(url)
+                return Jsoup.connect(url)
                         .method(method)
                         .userAgent(USER_AGENT)
                         .execute()
                         .parse();
-                if (Build.VERSION.SDK_INT < Build.VERSION_CODES.HONEYCOMB) {
-                    d.select("em").tagName("i");
-                }
-                return d;
             } catch (Exception ex) {
                 if (repeat != 0)
                     ex.printStackTrace();

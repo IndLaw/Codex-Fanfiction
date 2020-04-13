@@ -6,7 +6,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -109,10 +108,7 @@ public abstract class SearchFragmentContainer extends AppCompatListFragment {
     public void onStart() {
         super.onStart();
         task = new Task();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1)
-            task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-        else
-            task.execute();
+        task.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
 
     @Override
@@ -181,10 +177,7 @@ public abstract class SearchFragmentContainer extends AppCompatListFragment {
 
     protected void addTerm(String term) {
         term = term.toLowerCase();
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1)
-            new Term().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, term);
-        else
-            new Term().execute(term);
+        new Term().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, term);
     }
 
     @Override

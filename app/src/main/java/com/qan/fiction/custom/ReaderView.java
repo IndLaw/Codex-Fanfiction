@@ -30,6 +30,7 @@ public class ReaderView extends androidx.appcompat.widget.AppCompatTextView {
             int id = Settings.getTextDimension(context);
             setTextSize(TypedValue.COMPLEX_UNIT_PX, context.getResources().getDimensionPixelSize(id));
         }
+        ta.recycle();
     }
 
     public int getOffset(int y) {

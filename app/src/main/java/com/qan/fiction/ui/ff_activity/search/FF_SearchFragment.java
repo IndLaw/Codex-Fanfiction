@@ -118,7 +118,6 @@ public class FF_SearchFragment extends FF_Paginate {
         put("languageid", "languageid");
         put("genreid", "genreid1");
         put("genreid2", "genreid2");
-        put("statusid", "statusid");
         put("censorid", "censorid");
         put("words", "words");
         put("statusid", "statusid");

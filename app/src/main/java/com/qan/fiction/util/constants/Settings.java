@@ -36,14 +36,14 @@ public class Settings {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = pref.edit();
         editor.putInt(context.getString(R.string.site_sorting), site);
-        editor.commit();
+        editor.apply();
     }
 
     public static void setStatusFiltering(Context context, int status) {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = pref.edit();
         editor.putInt(context.getString(R.string.filter_status), status);
-        editor.commit();
+        editor.apply();
     }
 
     public static String site(int site) {
@@ -131,28 +131,28 @@ public class Settings {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = pref.edit();
         editor.putInt(context.getString(R.string.filtering), selection);
-        editor.commit();
+        editor.apply();
     }
 
     public static void setFile(Context context, String file) {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = pref.edit();
         editor.putString(context.getString(R.string.current), file);
-        editor.commit();
+        editor.apply();
     }
 
     public static void setSorting(Context context, int selection) {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = pref.edit();
         editor.putInt(context.getString(R.string.sorting), selection);
-        editor.commit();
+        editor.apply();
     }
 
     public static void setRead(Context context, String file, boolean res) {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = pref.edit();
         editor.putBoolean(file + "read", res);
-        editor.commit();
+        editor.apply();
     }
 
 
@@ -163,14 +163,14 @@ public class Settings {
         editor.putString(context.getString(R.string.online_info) + "_title", info.title);
         editor.putInt(context.getString(R.string.online_info) + "_id", info.id);
         editor.putInt(context.getString(R.string.online_info) + "_chap", info.chapters);
-        editor.commit();
+        editor.apply();
     }
 
     public static void setLastSite(Context context, int value) {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = pref.edit();
         editor.putInt(context.getString(R.string.last_site), value);
-        editor.commit();
+        editor.apply();
     }
 
 
@@ -178,14 +178,14 @@ public class Settings {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = pref.edit();
         editor.putBoolean(file + "starred", res);
-        editor.commit();
+        editor.apply();
     }
 
     public static void setSortingStyle(Context context, int style) {
         SharedPreferences pref = PreferenceManager.getDefaultSharedPreferences(context);
         SharedPreferences.Editor editor = pref.edit();
         editor.putInt(context.getString(R.string.sorting_style), style);
-        editor.commit();
+        editor.apply();
     }
 
 
@@ -197,7 +197,7 @@ public class Settings {
         db.close();
         editor.remove(file + "read");
         editor.remove(file + "starred");
-        editor.commit();
+        editor.apply();
     }
 
 

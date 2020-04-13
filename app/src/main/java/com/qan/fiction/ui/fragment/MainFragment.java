@@ -46,10 +46,12 @@ public class MainFragment extends AppCompatListFragment {
         super.onCreate(savedInstanceState);
         String[] elem = getResources().getStringArray(com.qan.fiction.R.array.main_menu_list);
         TypedArray draw;
-        if (Settings.isLightTheme(getActivity()))
+        if (Settings.isLightTheme(getActivity())) {
             draw = getResources().obtainTypedArray(R.array.main_menu_drawables);
-        else
+        }
+        else {
             draw = getResources().obtainTypedArray(R.array.main_menu_drawables_dark);
+        }
         Drawable[] d = new Drawable[elem.length];
         DisplayMetrics metrics = new DisplayMetrics();
         getActivity().getWindowManager().getDefaultDisplay().getMetrics(metrics);
@@ -58,6 +60,7 @@ public class MainFragment extends AppCompatListFragment {
             d[i] = draw.getDrawable(i);
             d[i].setBounds(0, 0, pix, pix);
         }
+        draw.recycle();
         setListAdapter(new MainAdapter(getActivity(), elem, d));
         setHasOptionsMenu(true);
 

@@ -11,8 +11,8 @@
             android:layout_centerVertical="true"
             android:ellipsize="end"
             android:singleLine="true"
-            android:layout_toLeftOf="@+id/hint"
-            android:layout_alignParentLeft="true"
+            android:layout_toStartOf="@+id/hint"
+            android:layout_alignParentStart="true"
             android:layout_height="wrap_content"
             android:layout_width="wrap_content"
             android:textSize="18sp"/>
@@ -21,8 +21,8 @@
             android:textColor="@android:color/darker_gray"
             android:layout_centerVertical="true"
             android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
             android:layout_width="wrap_content"
-            android:layout_marginRight="5dp"
+            android:layout_marginEnd="5dp"
             android:textSize="12sp"/>
 </RelativeLayout>

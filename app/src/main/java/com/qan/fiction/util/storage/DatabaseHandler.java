@@ -121,6 +121,7 @@ public class DatabaseHandler extends SQLiteOpenHelper {
             c.moveToFirst();
             cv.put(KEY_VALUE, c.getInt(0) + 1);
         }
+        c.close();
         db.insertWithOnConflict(TABLE_SEARCH, null, cv, SQLiteDatabase.CONFLICT_REPLACE);
         db.close();
 

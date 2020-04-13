@@ -7,7 +7,6 @@ import android.content.DialogInterface;
 import android.content.pm.ActivityInfo;
 import android.content.res.Configuration;
 import android.os.AsyncTask;
-import android.os.Build;
 import android.os.Bundle;
 import android.os.Looper;
 import android.text.Html;
@@ -177,14 +176,7 @@ public class ReaderFragment extends AppCompatFragment {
                     d.cancel();
                 return;
             }
-            try {
-                textView.setText(s);
-            } catch (IndexOutOfBoundsException e) {
-                if (Build.VERSION.SDK_INT == Build.VERSION_CODES.JELLY_BEAN) {
-                    textView.setTag(s.toString());
-                } else
-                    throw e;
-            }
+            textView.setText(s);
             if (d != null)
                 d.cancel();
             Settings.setPage(getActivity(), getLocation(), getPage());
@@ -394,10 +386,7 @@ public class ReaderFragment extends AppCompatFragment {
 
 
     void setContent() {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1)
-            getDownloadInstance().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
-        else
-            getDownloadInstance().execute();
+        getDownloadInstance().executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
         set_listeners();
     }
 

@@ -177,10 +177,7 @@ public abstract class Categories extends AppCompatListFragment implements Browsa
             if (d != null)
                 d.cancel(true);
             d = new Download();
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB_MR1)
-                d.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, page);
-            else
-                d.execute(page);
+            d.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, page);
         } else {
             items = (ArrayList<CategoryInfo>) saved.getSerializable("items");
         }
